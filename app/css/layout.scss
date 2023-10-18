@@ -1,0 +1,50 @@
+$sm: 640px;
+$md: 768px;
+$lg: 1024px;
+$xl: 1280px;
+$xxl: 1536px;
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 1;
+    @media (min-width: $lg) {
+        height: 70px;
+    }
+}
+
+// main
+
+body {
+    min-height: 100vh;
+    @media (min-width: $lg) {
+        padding-top: 70px;
+    }
+}
+
+main {
+    @apply mx-auto;
+    @apply prose;
+    max-width: $xl;
+    padding-left: 1em;
+    padding-right: 1em;
+    @media (min-width: $xl) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    display: grid;
+    grid-template-columns: 1fr;
+    align-content: center;
+    text-align: left;
+    justify-content: center;
+    margin: 0 auto;
+    min-height: 100vh;
+    position: relative;
+    @media (min-width: $sm) {
+        min-height: calc(100vh - 70px);
+    }
+    @media (min-width: $lg) {
+        min-height: calc(100vh - 70px);
+    }
+}

@@ -1,4 +1,20 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
 
-module.exports = nextConfig
+const path = require('path');
+
+const nextConfig = {
+    reactStrictMode: true,
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'api.slownames.net',
+            },
+        ],
+    },
+    sassOptions: {
+        includePaths: [path.join(__dirname, 'css')],
+    },
+};
+
+module.exports = nextConfig;

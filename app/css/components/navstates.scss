@@ -1,0 +1,31 @@
+.nav-item-default-state {
+    font-family: $font-header;
+    text-underline-offset: 2px;
+    transition: 100ms;
+    text-decoration: underline;
+    display: inline-block;
+}
+
+.nav-item-hover-state {
+    text-underline-offset: 0.5em;
+}
+.nav-item-active-state {
+    font-weight: bold;
+}
+
+.nav-item {
+    a {
+        @apply nav-item-default-state;
+    }
+    &:hover a,
+    &:focus a,
+    &:active a,
+    a:hover,
+    a:focus,
+    a:active {
+        @apply nav-item-hover-state;
+    }
+    &.active a {
+        @apply nav-item-active-state;
+    }
+}

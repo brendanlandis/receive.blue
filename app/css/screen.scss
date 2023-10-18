@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "type";
+@import "layout";
+
+// components
+@import "components/helpers";
+@import "components/navdesktop";
+@import "components/navmobile";
+@import "components/navstates";
