@@ -1,32 +1,36 @@
 #home {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1em;
     grid-template-areas:
-        'logo logo logo logo'
         'image image image image'
+        'logo logo logo logo'
         'about about shows shows'
         'posts posts posts tabs';
     .logo {
         grid-area: logo;
-        opacity: 0.3;
-        transform: scale(1.5);
-        margin-top: -125px;
-        margin-bottom: -125px;
+        opacity: 0.2;
+        transform: scale(1.1);
+        margin-top: -10%;
+        margin-bottom: -100%;
     }
     .image {
         grid-area: image;
-        z-index: 2;
     }
     .about {
+        z-index: 2;
         grid-area: about;
     }
     .shows {
+        z-index: 2;
         grid-area: shows;
     }
     .posts {
+        z-index: 2;
         grid-area: posts;
     }
     .tabs {
+        z-index: 2;
         grid-area: tabs;
     }
 }
