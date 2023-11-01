@@ -1,0 +1,32 @@
+#home {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+        'logo logo logo logo'
+        'image image image image'
+        'about about shows shows'
+        'posts posts posts tabs';
+    .logo {
+        grid-area: logo;
+        opacity: 0.3;
+        transform: scale(1.5);
+        margin-top: -125px;
+        margin-bottom: -125px;
+    }
+    .image {
+        grid-area: image;
+        z-index: 2;
+    }
+    .about {
+        grid-area: about;
+    }
+    .shows {
+        grid-area: shows;
+    }
+    .posts {
+        grid-area: posts;
+    }
+    .tabs {
+        grid-area: tabs;
+    }
+}

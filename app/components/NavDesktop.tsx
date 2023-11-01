@@ -18,7 +18,7 @@ export default function NavDesktop() {
                     <Obfuscate email="b@slownames.net" />
                 </li>
                 <li className="nav-item">
-                    <Link href="https://mailchimp.com/">mailchimp</Link>
+                    <Link href="https://mailchimp.com/">mailing list</Link>
                 </li>
                 <li>
                     <ul id="nav-desktop-socials">
