@@ -3,12 +3,11 @@ import NavDesktopItem from './NavDesktopItem';
 
 export default function NavDesktop() {
     return (
-        <nav id="nav-desktop">
+        <nav id="nav-desktop-primary">
             <ul>
-                <NavDesktopItem url="/" name="home" />
-                <NavDesktopItem url="/one" name="one" />
-                <NavDesktopItem url="/two" name="two" />
-                <NavDesktopItem url="/three" name="three" />
+                <NavDesktopItem url="/" name="about" />
+                <NavDesktopItem url="/shows" name="shows" />
+                <NavDesktopItem url="/else" name="other stuff we're up to" />
             </ul>
         </nav>
     );

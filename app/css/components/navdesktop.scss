@@ -1,27 +1,62 @@
-nav#nav-desktop {
+nav#nav-desktop-primary,
+nav#nav-desktop-secondary {
     display: none;
     @media (min-width: $lg) {
-        display: grid;
-        grid-template-columns: 1fr;
+        display: inline-block;
     }
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 1em;
+    position: absolute;
+}
+
+nav#nav-desktop-primary {
+    top: 0;
+    left: 0;
     ul {
-        display: flex;
+        display: grid;
         align-items: center;
         justify-content: center;
         overflow: hidden;
         li {
-            text-align: center;
             font-size: 1.2em;
+            line-height: 1em;
+            max-width: 150px;
             a {
-                display: block;
-                padding: 20px 20px;
-                height: 100%;
-                width: 100%;
+                display: inline-block;
+                padding: 10px 15px;
             }
         }
     }
 }
 
+nav#nav-desktop-secondary {
+    top: 0;
+    right: 0;
+    display: grid;
+    align-items: center;
+    justify-content: end;
+    ul#nav-desktop-socials {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        align-items: center;
+        justify-content: end;
+        justify-self: end;
+        li {
+            font-size: 1.2em;
+            line-height: 1em;
+            a {
+                padding: 3px;
+            }
+            svg {
+                height: 30px;
+                width: 30px;
+            }
+        }
+    }
+    ul#nav-desktop-contact {
+        justify-self: end;
+        display: grid;
+        align-items: center;
+        justify-content: end;
+        text-align: right;
+        padding: 5px 10px;
+    }
+}
