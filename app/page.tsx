@@ -13,7 +13,6 @@ export default function Home() {
             <div id="background-wrapper">
                 <header>
                     <NavDesktop />
-                    <NavDesktopSecondary />
                     <NavMobile />
                 </header>
                 <main>ok it is a skeleton site, wow spooky</main>

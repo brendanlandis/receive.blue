@@ -15,17 +15,23 @@ header {
 }
 
 // main
-
 body {
     min-height: 100vh;
     @media (min-width: $lg) {
         padding-top: 70px;
     }
+    background-color: #000;
+    background-image: linear-gradient(45deg, #654ea3, #eaafc8);
+
+    color: #fff2f7;
+}
+
+nav {
+    color: #fff2f7;
 }
 
 main {
     @apply mx-auto;
-    @apply prose;
     max-width: $xl;
     padding-left: 1em;
     padding-right: 1em;

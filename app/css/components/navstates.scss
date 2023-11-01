@@ -1,17 +1,17 @@
 .nav-item-default-state {
-    font-family: $font-header;
-    // text-underline-offset: 2px;
     transition: 100ms;
-    text-decoration: underline;
+    text-decoration: none;
     display: inline-block;
+    font-style: italic;
 }
 
 .nav-item-hover-state {
-    text-decoration: none;
-    // text-underline-offset: 0.5em;
+    text-decoration: underline;
 }
 .nav-item-active-state {
     font-weight: bold;
+    text-decoration: underline;
+    letter-spacing: 0.1em;
 }
 
 .nav-item {

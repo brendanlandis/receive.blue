@@ -1,16 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,400;0,900;1,200;1,400;1,900&display=swap');
+
 $font-header: sans-serif;
+$font-mono: 'Source Code Pro', sans-serif;
 $font-body: serif;
 
 header {
-    font-family: $font-header;
-    font-weight: 300;
+    font-family: $font-mono;
+    text-transform: uppercase;
+    font-weight: 400;
     nav {
         font-weight: 100 !important;
     }
 }
 
 main {
-    font-family: $font-body;
+    font-family: $font-mono;
     font-size: 1em;
 }
 
