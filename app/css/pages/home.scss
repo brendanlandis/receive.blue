@@ -33,4 +33,39 @@
         z-index: 2;
         grid-area: tabs;
     }
+
+    .show {
+        display: grid;
+        grid-template-columns: 1fr 5fr 2fr;
+        gap: 1em;
+        align-items: center;
+        background: rgba(0,0,0,0.3);
+        .show-date {
+            background: #000;
+            border-radius: 0.5em;
+            text-align: center;
+            display: grid;
+            grid-template-columns: 1fr;
+            align-content: center;
+            margin: 0;
+            aspect-ratio: 1 / 1;
+            .date-month {
+                font-weight: 400;
+                text-transform: lowercase;
+                font-size: 1.5em;
+                line-height: 1em;
+            }
+        }
+        .show-details {
+            .show-where {
+                font-size: 1.1em;
+                .show-venue {
+                    font-weight: bold;
+                }
+            }
+            a {
+                text-decoration: underline;
+            }
+        }
+    }
 }

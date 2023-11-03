@@ -32,14 +32,14 @@ export default function Home() {
                         </ul>
                     </div>
                     <div className="shows">
-                        <h2>upcoming shows:</h2>
+                        <h2>upcoming shows</h2>
                         <UpcomingShows />
                     </div>
                     <div className="posts">
-                        <h2>news:</h2>
+                        <h2>news</h2>
                     </div>
                     <div className="opentabs">
-                        <h2>open tabs:</h2>
+                        <h2>open tabs</h2>
                         <ul>
                             <li>here's one</li>
                         </ul>

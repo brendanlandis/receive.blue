@@ -50,6 +50,8 @@ export interface Show {
         displayBandname: string;
     }>;
     date: string;
+    shortMonth: string;
+    shortDay: string;
     doors: string;
     sound: string;
     venue: string;

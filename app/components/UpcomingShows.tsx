@@ -1,6 +1,10 @@
 'use client';
 import useAxios from 'axios-hooks';
 import { Show, RawShowData } from '@/app/types';
+import format from 'date-fns/format';
+import parseISO from 'date-fns/parseISO';
+
+// TODO if two of our bands are playing, the one that isn't Receive should be added to the otherBands field
 
 export default function UpcomingShows() {
     const [{ data: shows, loading, error }, refetch] = useAxios(
@@ -19,6 +23,8 @@ export default function UpcomingShows() {
                 displayBandname: band.displayBandname,
             })),
             date: show.attributes.date,
+            shortMonth: format(parseISO(show.attributes.date), 'MMM'),
+            shortDay: format(parseISO(show.attributes.date), 'do'),
             doors: show.attributes.doors,
             sound: show.attributes.sound,
             venue: show.attributes.venue,
@@ -33,8 +39,8 @@ export default function UpcomingShows() {
             flyers: show.attributes.flyers.data.map((flyer) => ({
                 id: flyer.id,
                 alt: flyer.attributes.alternativeText,
-                urlLarge: flyer.attributes.url,
-                urlSmall: flyer.attributes.formats.medium.url,
+                urlLarge: `${process.env.NEXT_PUBLIC_STRAPI_URL}${flyer.attributes.url}`,
+                urlSmall: `${process.env.NEXT_PUBLIC_STRAPI_URL}${flyer.attributes.formats.medium.url}`,
             })),
         }));
 
@@ -46,46 +52,39 @@ export default function UpcomingShows() {
     return (
         <>
             {formattedShows.map((show: Show) => (
-                <div key={show.id}>
-                    <div>{show.date}</div>
-                    <div>doors: {show.doors}</div>
-                    <div>sound: {show.sound}</div>
-                    <div>
-                        bands:
-                        <ul>
-                            {show.bands.map((band) => (
-                                <li>
-                                    <div>- bandname: {band.bandname}</div>
-                                    <div>
-                                        - playing as: {band.displayBandname}
+                <div className="show" key={show.id}>
+                    <div className="show-date">
+                        <div className="date-month">{show.shortMonth}</div>
+                        <div className="date-day">{show.shortDay}</div>
+                    </div>
+                    <div className="show-details">
+                        <div className="show-where">
+                            <span className="show-venue">{show.venue}</span>
+                            {show.city !== 'Brooklyn, NY' ? (
+                                <span className="show-city">
+                                    {' '}
+                                    ({show.city})
+                                </span>
+                            ) : null}
+                        </div>
+                        <div>with {show.otherBands}</div>
+                        {show.eventLinks.length > 0 && (
+                            <div className='show-links'>
+                                {show.eventLinks.map((link) => (
+                                    <div key={link.id}>
+                                        <a href={link.url}>{link.text}</a>
                                     </div>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                    <div>venue: {show.venue}</div>
-                    <div>city: {show.city}</div>
-                    <div>notes: {show.notes}</div>
-                    <div>other bands: {show.otherBands}</div>
-                    <div>
-                        links:
-                        {show.eventLinks.map((link) => (
-                            <div key={link.id}>
-                                <a href={link.url}>{link.text}</a>
+                                ))}
                             </div>
-                        ))}
+                        )}
+                        <div className='show-notes'>{show.notes}</div>
                     </div>
-                    <div>
-                        flyers:
-                        <ul>
-                            {show.flyers.map((flyer) => (
-                                <li>
-                                    <div>- alt: {flyer.alt}</div>
-                                    <div>- urlLarge: {flyer.urlLarge}</div>
-                                    <div>- urlSmall: {flyer.urlSmall}</div>
-                                </li>
-                            ))}
-                        </ul>
+                    <div className="show-flyer">
+                        {show.flyers.map((flyer) => (
+                            <a href={flyer.urlLarge}>
+                                <img src={flyer.urlSmall} alt={flyer.alt} />
+                            </a>
+                        ))}
                     </div>
                 </div>
             ))}
