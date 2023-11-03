@@ -25,7 +25,11 @@ export default function UpcomingShows() {
             city: show.attributes.city,
             notes: show.attributes.notes,
             otherBands: show.attributes.otherBands,
-            link: show.attributes.link,
+            eventLinks: show.attributes.eventLinks.map((link) => ({
+                id: link.id,
+                url: link.url,
+                text: link.text,
+            })),
             flyers: show.attributes.flyers.data.map((flyer) => ({
                 id: flyer.id,
                 alt: flyer.attributes.alternativeText,
@@ -43,8 +47,7 @@ export default function UpcomingShows() {
         <>
             {formattedShows.map((show: Show) => (
                 <div key={show.id}>
-                    <div>id: {show.id}</div>
-                    <div>date: {show.date}</div>
+                    <div>{show.date}</div>
                     <div>doors: {show.doors}</div>
                     <div>sound: {show.sound}</div>
                     <div>
@@ -53,7 +56,9 @@ export default function UpcomingShows() {
                             {show.bands.map((band) => (
                                 <li>
                                     <div>- bandname: {band.bandname}</div>
-                                    <div>- playing as: {band.displayBandname}</div>
+                                    <div>
+                                        - playing as: {band.displayBandname}
+                                    </div>
                                 </li>
                             ))}
                         </ul>
@@ -62,7 +67,14 @@ export default function UpcomingShows() {
                     <div>city: {show.city}</div>
                     <div>notes: {show.notes}</div>
                     <div>other bands: {show.otherBands}</div>
-                    <div>link: {show.link}</div>
+                    <div>
+                        links:
+                        {show.eventLinks.map((link) => (
+                            <div key={link.id}>
+                                <a href={link.url}>{link.text}</a>
+                            </div>
+                        ))}
+                    </div>
                     <div>
                         flyers:
                         <ul>

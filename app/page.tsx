@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import NavMobile from './components/NavMobile';
 import NavDesktop from './components/NavDesktop';
-import UpcomingShows from './UpcomingShows';
+import UpcomingShows from './components/UpcomingShows';
 
 export const metadata: Metadata = {
     title: 'Receive',

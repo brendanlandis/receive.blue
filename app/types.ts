@@ -20,7 +20,11 @@ export interface RawShowData {
         city: string;
         notes: string;
         otherBands: string;
-        link: string;
+        eventLinks: Array<{
+            id: number;
+            url: string;
+            text: string;
+        }>;
         flyers: {
             data: Array<{
                 id: number;
@@ -52,7 +56,11 @@ export interface Show {
     city: string;
     notes: string;
     otherBands: string;
-    link: string;
+    eventLinks: Array<{
+        id: number;
+        url: string;
+        text: string;
+    }>;
     flyers: Array<{
         id: number;
         alt: string;
