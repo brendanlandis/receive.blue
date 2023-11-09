@@ -16,28 +16,33 @@ nav#nav-desktop-primary {
         justify-content: center;
         overflow: hidden;
         li {
-            font-size: 1.5em;
+            font-size: 1.2em;
             line-height: 1em;
-            max-width: 250px;
-            a {
+            max-width: 225px;
+            padding: 15px 15px;
+            &#nav-item-socials {
+                padding: 0;
+            }
+            a,
+            span {
                 display: inline-block;
-                padding: 10px 15px;
             }
         }
     }
     ul#nav-desktop-socials {
         display: flex;
-        padding: 10px 10px 0 10px;
+        padding: 3px 10px 0 10px;
         gap: 3px;
         li {
             font-size: 1.2em;
             line-height: 1em;
+            padding: 0;
             a {
                 padding: 0;
             }
             svg {
-                height: 1em;
-                width: 1em;
+                height: 1.2em;
+                width: 1.2em;
             }
         }
     }

@@ -1,21 +1,65 @@
 #home {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 1em;
+    grid-template-columns: 1fr;
     grid-template-areas:
-        'image image image image'
-        'logo logo logo logo'
-        'about about shows shows'
-        'posts posts posts tabs';
+        'logo'
+        'image'
+        'about'
+        'shows'
+        'posts'
+        'tabs';
+    @media (min-width: $md) {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-areas:
+            'image image image image'
+            'logo logo logo logo'
+            'about about shows shows'
+            'posts posts posts tabs';
+    }
     .logo {
         grid-area: logo;
-        opacity: 0.2;
-        transform: scale(1.1);
-        margin-top: -10%;
-        margin-bottom: -100%;
+        opacity: 1;
+        padding-top: 15%;
+        margin-bottom: -80%;
+        position: relative;
+        z-index: 2;
+        overflow: hidden;
+        background: url('/header-mobile.jpg') center center no-repeat;
+        background-size: cover;
+        img {
+            transform: scale(1.5);
+            mix-blend-mode: color-dodge;
+            opacity: 0.5;
+        }
+        @media (min-width: $md) {
+            opacity: 0.2;
+        }
     }
     .image {
         grid-area: image;
+        margin-top: -1em;
+        .header-desktop {
+            display: none;
+            @media (min-width: $md) {
+                display: block;
+            }
+        }
+        .header-mobile {
+            display: block;
+            opacity: 1;
+            @media (min-width: $md) {
+                display: none;
+            }
+        }
+    }
+    .about,
+    .shows,
+    .posts,
+    .tabs {
+        @media (max-width: $md) {
+            padding: 0 1em;
+        }
     }
     .about {
         z-index: 2;
@@ -36,10 +80,10 @@
 
     .show {
         display: grid;
-        grid-template-columns: 1fr 5fr 2fr;
+        grid-template-columns: 2fr 6fr 2fr;
         gap: 1em;
         align-items: center;
-        background: rgba(0,0,0,0.3);
+        background: rgba(0, 0, 0, 0.3);
         .show-date {
             background: #000;
             border-radius: 0.5em;
@@ -47,13 +91,16 @@
             display: grid;
             grid-template-columns: 1fr;
             align-content: center;
-            margin: 0;
+            margin: 1em 1em 1em 0;
             aspect-ratio: 1 / 1;
             .date-month {
                 font-weight: 400;
                 text-transform: lowercase;
-                font-size: 1.5em;
+                font-size: 2em;
                 line-height: 1em;
+            }
+            .date-day {
+                font-size: 1.2em;
             }
         }
         .show-details {
@@ -61,6 +108,7 @@
                 font-size: 1.1em;
                 .show-venue {
                     font-weight: bold;
+                    font-size: 1.2em;
                 }
             }
             a {

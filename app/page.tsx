@@ -20,7 +20,16 @@ export default function Home() {
                         <img src="/logo.png" alt="Receive logo" />
                     </div>
                     <div className="image">
-                        <img src="/header.jpg" alt="receive live at hart bar" />
+                        <img
+                            src="/header-mobile.jpg"
+                            className="header-mobile"
+                            alt="receive live at hart bar"
+                        />
+                        <img
+                            src="/header-desktop.jpg"
+                            className="header-desktop"
+                            alt="receive live at hart bar"
+                        />
                     </div>
                     <div className="about">
                         <h2>Receive is:</h2>
@@ -38,7 +47,7 @@ export default function Home() {
                     <div className="posts">
                         <h2>news</h2>
                     </div>
-                    <div className="opentabs">
+                    <div className="tabs">
                         <h2>open tabs</h2>
                         <ul>
                             <li>here's one</li>
