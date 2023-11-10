@@ -164,4 +164,18 @@
             }
         }
     }
+
+    .opentab {
+        & + .opentab {
+            margin-top: 0.5em;
+            padding-top: 0.5em;
+            border-top: 1px solid #666;
+        }
+        a {
+            text-decoration: underline;
+        }
+        .tab-description {
+            font-size: 0.8em;
+        }
+    }
 }

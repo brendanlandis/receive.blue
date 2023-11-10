@@ -111,3 +111,29 @@ export interface Post {
         url: string;
     }>;
 }
+
+export interface RawTabData {
+    id: number;
+    attributes: {
+        createdAt: string;
+        url: string;
+        linkText: string;
+        description: string;
+        bands: {
+            data: Array<{
+                id: number;
+                attributes: {
+                    bandname: string;
+                };
+            }>;
+        };
+    };
+}
+
+export interface Tab {
+    id: number;
+    date: string;
+    url: string;
+    linkText: string;
+    description: string;
+}

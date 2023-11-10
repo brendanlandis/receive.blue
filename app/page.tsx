@@ -3,6 +3,7 @@ import NavMobile from './components/NavMobile';
 import NavDesktop from './components/NavDesktop';
 import UpcomingShows from './components/UpcomingShows';
 import Posts from './components/Posts';
+import Tabs from './components/Tabs';
 
 export const metadata: Metadata = {
     title: 'Receive',
@@ -51,9 +52,7 @@ export default function Home() {
                     </div>
                     <div className="opentabs">
                         <h2>open tabs</h2>
-                        <ul>
-                            <li>here's one</li>
-                        </ul>
+                        <Tabs />
                     </div>
                 </main>
             </div>
