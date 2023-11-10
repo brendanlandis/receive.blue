@@ -36,8 +36,8 @@ export default function Home() {
                     <div className="about">
                         <p><span className='bigtext'>Receive</span> is a loud / quiet band from Ridgewood NY.</p>
                         <ul>
-                            <li>Brendan: vocals, baritone guitar</li>
-                            <li>Calley: guitar</li>
+                            <li>Brendan: vox, gtr</li>
+                            <li>Calley: lead gtr</li>
                             <li>Zach: bass</li>
                             <li>Monroe: drums</li>
                         </ul>

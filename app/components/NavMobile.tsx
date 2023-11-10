@@ -3,6 +3,15 @@ import * as React from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react';
 import NavMobileItem from './NavMobileItem';
+// @ts-ignore
+import Obfuscate from 'react-obfuscate';
+import Link from 'next/link';
+import {
+    LiaInstagram,
+    LiaBandcamp,
+    LiaSpotify,
+    LiaMastodon,
+} from 'react-icons/lia';
 
 export default function NavMobile() {
     let [isOpen, setIsOpen] = useState(false);
@@ -60,17 +69,55 @@ export default function NavMobile() {
                                     </svg>
                                 </button>
                             </div>
-                            <ul>
+                            <ul className='mobile-menu-list'>
                                 <NavMobileItem
                                     url="/"
-                                    name="posts"
+                                    name="home"
                                     onClick={closeModal}
                                 />
                                 <NavMobileItem
-                                    url="/settings"
-                                    name="settings"
+                                    url="/shows"
+                                    name="shows"
                                     onClick={closeModal}
                                 />
+                                <NavMobileItem
+                                    url="/else"
+                                    name="other stuff we're up to"
+                                    onClick={closeModal}
+                                />
+                                <li className="nav-item nav-item-contact">
+                                    <span>contact:</span>
+                                    <Obfuscate email="b@slownames.net" />
+                                </li>
+                                <li className="nav-item">
+                                    <Link href="https://mailchimp.com/">
+                                        mailing list
+                                    </Link>
+                                </li>
+                                <li id="nav-item-socials">
+                                    <ul id="nav-mobile-socials">
+                                        <li className="nav-item">
+                                            <Link href="https://www.instagram.com/rreecceeiivvee/">
+                                                <LiaInstagram />
+                                            </Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link href="https://slownames.bandcamp.com/">
+                                                <LiaBandcamp />
+                                            </Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link href="https://spotify.com/">
+                                                <LiaSpotify />
+                                            </Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link href="https://mstdn.social/@slownames">
+                                                <LiaMastodon />
+                                            </Link>
+                                        </li>
+                                    </ul>
+                                </li>
                             </ul>
                         </Dialog.Panel>
                     </Transition.Child>

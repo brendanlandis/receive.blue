@@ -1,4 +1,4 @@
-nav#nav-desktop-primary,
+nav#nav-desktop,
 nav#nav-desktop-secondary {
     display: none;
     @media (min-width: $lg) {
@@ -7,7 +7,7 @@ nav#nav-desktop-secondary {
     position: absolute;
 }
 
-nav#nav-desktop-primary {
+nav#nav-desktop {
     top: 10px;
     left: 0;
     ul#nav-desktop-pages {
