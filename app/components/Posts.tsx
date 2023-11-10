@@ -17,7 +17,8 @@ export default function Posts() {
     const formatPosts = (posts: { data: RawPostData[] }): Post[] => {
         const formattedPostsData: Post[] = posts.data.map((post) => ({
             id: post.id,
-            date: format(parseISO(post.attributes.date), 'MMMM Lo, GGGG yyyy'),
+            realDate: post.attributes.date,
+            date: format(parseISO(post.attributes.date), 'MMMM do, GGGG yyyy'),
             headline: post.attributes.headline,
             text: post.attributes.text,
             attachments: post.attributes.attachments.map((attachment) => ({
@@ -27,7 +28,15 @@ export default function Posts() {
             })),
         }));
 
-        return formattedPostsData;
+        formattedPostsData.sort(
+            (a, b) => new Date(b.realDate).getTime() - new Date(a.realDate).getTime()
+        );
+        const currentDate = new Date();
+        const filteredPostsData = formattedPostsData.filter(
+            (post) => new Date(post.realDate) <= currentDate
+        );
+
+        return filteredPostsData;
     };
 
     const formattedPosts = posts ? formatPosts(posts) : [];

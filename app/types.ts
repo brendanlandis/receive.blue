@@ -102,6 +102,7 @@ export interface RawPostData {
 export interface Post {
     id: number;
     date: string;
+    realDate: string;
     headline: string;
     text: string;
     attachments: Array<{

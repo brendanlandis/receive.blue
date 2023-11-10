@@ -44,7 +44,15 @@ export default function UpcomingShows() {
             })),
         }));
 
-        return formattedShowsData;
+        formattedShowsData.sort(
+            (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+        );
+        const currentDate = new Date();
+        const filteredShowsData = formattedShowsData.filter(
+            (show) => new Date(show.date) >= currentDate
+        );
+
+        return filteredShowsData;
     };
 
     const formattedShows = shows ? formatShows(shows) : [];
@@ -54,10 +62,14 @@ export default function UpcomingShows() {
             {formattedShows.map((show: Show) => (
                 <div className="show" key={show.id}>
                     <div className="show-details">
-                        <div className="show-month bigtext">{show.shortMonth}. </div>
+                        <div className="show-month bigtext">
+                            {show.shortMonth}.{' '}
+                        </div>
                         <div className="show-day bigtext">{show.shortDay} </div>
                         <div className="show-where">
-                            <span className="show-venue bigtext">@ {show.venue} </span>
+                            <span className="show-venue bigtext">
+                                @ {show.venue}{' '}
+                            </span>
                             {show.city !== 'Brooklyn, NY' ? (
                                 <span className="show-city">
                                     ({show.city}){' '}
