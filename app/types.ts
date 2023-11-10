@@ -70,3 +70,43 @@ export interface Show {
         urlSmall: string;
     }>;
 }
+
+export interface RawPostData {
+    id: number;
+    attributes: {
+        date: string;
+        headline: string;
+        text: string;
+        bands: {
+            data: Array<{
+                id: number;
+                attributes: {
+                    bandname: string;
+                };
+            }>;
+        };
+        attachments: Array<{
+            id: number;
+            linkText: string;
+            file: {
+                data: {
+                    attributes: {
+                        url: string;
+                    };
+                };
+            };
+        }>;
+    };
+}
+
+export interface Post {
+    id: number;
+    date: string;
+    headline: string;
+    text: string;
+    attachments: Array<{
+        id: number;
+        text: string;
+        url: string;
+    }>;
+}
