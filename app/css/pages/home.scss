@@ -1,6 +1,7 @@
 #home {
     display: grid;
     gap: 1em;
+    padding-bottom: 1em;
     grid-template-columns: 1fr;
     grid-template-areas:
         'logo'
@@ -25,15 +26,18 @@
         position: relative;
         z-index: 2;
         overflow: hidden;
-        background: url('/header-mobile.jpg') center center no-repeat;
-        background-size: cover;
         img {
             transform: scale(1.5);
             mix-blend-mode: color-dodge;
             opacity: 0.5;
         }
+        @media (max-width: $md) {
+            background: url('/header-mobile.jpg') center center no-repeat;
+            background-size: cover;
+        }
         @media (min-width: $md) {
             opacity: 0.2;
+            background: none;
         }
     }
     .image {
@@ -56,63 +60,86 @@
     .about,
     .shows,
     .posts,
-    .tabs {
+    .opentabs {
+        z-index: 2;
         @media (max-width: $md) {
             padding: 0 1em;
         }
     }
     .about {
-        z-index: 2;
         grid-area: about;
+        ul {
+            margin-top: 1em;
+        }
     }
     .shows {
-        z-index: 2;
         grid-area: shows;
     }
     .posts {
-        z-index: 2;
         grid-area: posts;
     }
-    .tabs {
-        z-index: 2;
+    .opentabs {
         grid-area: tabs;
     }
 
     .show {
         display: grid;
-        grid-template-columns: 2fr 6fr 2fr;
-        gap: 1em;
-        align-items: center;
-        background: rgba(0, 0, 0, 0.3);
-        .show-date {
-            background: #000;
-            border-radius: 0.5em;
-            text-align: center;
-            display: grid;
-            grid-template-columns: 1fr;
-            align-content: center;
-            margin: 1em 1em 1em 0;
-            aspect-ratio: 1 / 1;
-            .date-month {
-                font-weight: 400;
-                text-transform: lowercase;
-                font-size: 2em;
-                line-height: 1em;
+        grid-template-columns: 1fr;
+        div {
+            display: inline;
+        }
+        & + .show {
+            margin-top: 2em;
+            padding-top: 1.5em;
+            border-top: 1px solid #666;
+        }
+        @media (max-width: $md) {
+            .show-details {
+                font-style: italic;
+                margin-bottom: 1em;
             }
-            .date-day {
-                font-size: 1.2em;
+            .show-links, .show-notes {
+                display: block;
+                a {
+                    text-decoration: underline;
+                }
             }
         }
-        .show-details {
-            .show-where {
-                font-size: 1.1em;
-                .show-venue {
-                    font-weight: bold;
+        @media (min-width: $md) {
+            grid-template-columns: 2fr 6fr 2fr;
+            gap: 1em;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.3);
+            .show-date {
+                background: #000;
+                border-radius: 0.5em;
+                text-align: center;
+                display: grid;
+                grid-template-columns: 1fr;
+                align-content: center;
+                margin: 1em 1em 1em 0;
+                aspect-ratio: 1 / 1;
+                .date-month {
+                    font-weight: 400;
+                    text-transform: lowercase;
+                    font-size: 2em;
+                    line-height: 1em;
+                }
+                .date-day {
                     font-size: 1.2em;
                 }
             }
-            a {
-                text-decoration: underline;
+            .show-details {
+                .show-where {
+                    font-size: 1.1em;
+                    .show-venue {
+                        font-weight: bold;
+                        font-size: 1.2em;
+                    }
+                }
+                a {
+                    text-decoration: underline;
+                }
             }
         }
     }

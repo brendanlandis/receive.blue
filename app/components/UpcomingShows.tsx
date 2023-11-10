@@ -53,31 +53,30 @@ export default function UpcomingShows() {
         <>
             {formattedShows.map((show: Show) => (
                 <div className="show" key={show.id}>
-                    <div className="show-date">
-                        <div className="date-month">{show.shortMonth}</div>
-                        <div className="date-day">{show.shortDay}</div>
-                    </div>
                     <div className="show-details">
+                        <div className="show-month bigtext">{show.shortMonth}. </div>
+                        <div className="show-day bigtext">{show.shortDay} </div>
                         <div className="show-where">
-                            <span className="show-venue">{show.venue}</span>
+                            <span className="show-venue bigtext">@ {show.venue} </span>
                             {show.city !== 'Brooklyn, NY' ? (
                                 <span className="show-city">
-                                    {' '}
-                                    ({show.city})
+                                    ({show.city}){' '}
                                 </span>
                             ) : null}
                         </div>
-                        <div>with {show.otherBands}</div>
+                        <div className="show-otherbands">
+                            with {show.otherBands}
+                        </div>
                         {show.eventLinks.length > 0 && (
-                            <div className='show-links'>
+                            <div className="show-links">
                                 {show.eventLinks.map((link) => (
-                                    <div key={link.id}>
-                                        <a href={link.url}>{link.text}</a>
-                                    </div>
+                                    <a key={link.id} href={link.url}>
+                                        {link.text}{' '}
+                                    </a>
                                 ))}
                             </div>
                         )}
-                        <div className='show-notes'>{show.notes}</div>
+                        <div className="show-notes">{show.notes}</div>
                     </div>
                     <div className="show-flyer">
                         {show.flyers.map((flyer) => (
