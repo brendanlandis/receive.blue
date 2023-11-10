@@ -17,7 +17,7 @@ export default function Posts() {
     const formatPosts = (posts: { data: RawPostData[] }): Post[] => {
         const formattedPostsData: Post[] = posts.data.map((post) => ({
             id: post.id,
-            date: post.attributes.date,
+            date: format(parseISO(post.attributes.date), 'MMMM Lo, GGGG yyyy'),
             headline: post.attributes.headline,
             text: post.attributes.text,
             attachments: post.attributes.attachments.map((attachment) => ({
@@ -36,16 +36,18 @@ export default function Posts() {
         <>
             {formattedPosts.map((post: Post) => (
                 <div className="post" key={post.id}>
-                    <div>date: {post.date}</div>
-                    <div>headline: {post.headline}</div>
-                    <div>text: {post.text}</div>
-                    <div>
+                    <div className="post-header">
+                        <div className="post-headline bigtext">
+                            {post.headline}
+                        </div>
+                        <div className="post-date smalltext">{post.date}</div>
+                    </div>
+                    <div className="post-text">{post.text}</div>
+                    <div className="post-links">
                         {post.attachments.map((attachment) => (
-                            <div>
-                                <a href={attachment.url} key={attachment.id}>
-                                    {attachment.text}
-                                </a>
-                            </div>
+                            <a href={attachment.url} key={attachment.id}>
+                                {attachment.text}
+                            </a>
                         ))}
                     </div>
                 </div>

@@ -98,7 +98,8 @@
                 font-style: italic;
                 margin-bottom: 1em;
             }
-            .show-links, .show-notes {
+            .show-links,
+            .show-notes {
                 display: block;
                 a {
                     text-decoration: underline;
@@ -140,6 +141,21 @@
                 a {
                     text-decoration: underline;
                 }
+            }
+        }
+    }
+
+    .post {
+        .post-header {
+            margin-bottom: 1em;
+        }
+        .post-text {
+            margin-bottom: 1em;
+        }
+        .post-links {
+            a {
+                text-decoration: underline;
+                display: block;
             }
         }
     }

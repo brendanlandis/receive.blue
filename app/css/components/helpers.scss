@@ -21,6 +21,14 @@
 
 .bigtext {
     font-size: 1.8em;
+    line-height: 1em;
+    text-transform: uppercase;
+    /* font-weight: bold; */
+    font-style: italic;
+}
+
+.smalltext {
+    font-size: 0.8em;
     text-transform: uppercase;
     /* font-weight: bold; */
     font-style: italic;
