@@ -3,16 +3,10 @@
     text-decoration: none;
     display: inline-block;
     font-style: italic;
-    svg {
-        border-bottom: 1px solid transparent;
-    }
 }
 
 .nav-item-hover-state {
     text-decoration: underline;
-    svg {
-        border-bottom: 1px solid #fff;
-    }
 }
 .nav-item-active-state {
     font-weight: bold;
@@ -31,7 +25,5 @@
     }
     &.active a {
         @apply nav-item-active-state;
-    }
-    avg:hover {
     }
 }

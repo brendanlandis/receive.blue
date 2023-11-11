@@ -13,7 +13,7 @@ import {
 export default function NavDesktop() {
     return (
         <nav id="nav-desktop">
-            <ul id="nav-desktop-pages">
+            <ul id="primary">
                 <NavDesktopItem url="/" name="home" />
                 <NavDesktopItem url="/shows" name="shows" />
                 <NavDesktopItem url="/else" name="other stuff we're up to" />
