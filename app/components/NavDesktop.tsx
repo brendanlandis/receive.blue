@@ -22,7 +22,7 @@ export default function NavDesktop() {
                     <Obfuscate email="b@slownames.net" />
                 </li>
                 <li className="nav-item">
-                    <Link href="https://mailchimp.com/">mailing list</Link>
+                    <Link href="https://mailchi.mp/27bd7c689968/slow-names-mailing-list-receive-star-card-receiver-etc">mailing list</Link>
                 </li>
                 <li id="nav-item-socials">
                     <ul id="nav-desktop-socials">
@@ -36,11 +36,11 @@ export default function NavDesktop() {
                                 <LiaBandcamp />
                             </Link>
                         </li>
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <Link href="https://spotify.com/">
                                 <LiaSpotify />
                             </Link>
-                        </li>
+                        </li> */}
                         <li className="nav-item">
                             <Link href="https://mstdn.social/@slownames">
                                 <LiaMastodon />

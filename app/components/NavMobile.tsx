@@ -90,7 +90,7 @@ export default function NavMobile() {
                                     <Obfuscate email="b@slownames.net" />
                                 </li>
                                 <li className="nav-item">
-                                    <Link href="https://mailchimp.com/">
+                                    <Link href="https://mailchi.mp/27bd7c689968/slow-names-mailing-list-receive-star-card-receiver-etc">
                                         mailing list
                                     </Link>
                                 </li>
@@ -106,11 +106,11 @@ export default function NavMobile() {
                                                 <LiaBandcamp />
                                             </Link>
                                         </li>
-                                        <li className="nav-item">
+                                        {/* <li className="nav-item">
                                             <Link href="https://spotify.com/">
                                                 <LiaSpotify />
                                             </Link>
-                                        </li>
+                                        </li> */}
                                         <li className="nav-item">
                                             <Link href="https://mstdn.social/@slownames">
                                                 <LiaMastodon />
