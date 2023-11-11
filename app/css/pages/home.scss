@@ -19,9 +19,13 @@
             'posts posts posts tabs';
     }
 
-    h2 {
-        @media (min-width: $md) {
-            
+    .about,
+    .shows,
+    .posts,
+    .opentabs {
+        z-index: 2;
+        @media (max-width: $lg) {
+            padding: 0 1em;
         }
     }
 
@@ -50,6 +54,7 @@
             background: none;
         }
     }
+
     .image {
         grid-area: image;
         margin-top: -1em;
@@ -74,15 +79,7 @@
             }
         }
     }
-    .about,
-    .shows,
-    .posts,
-    .opentabs {
-        z-index: 2;
-        @media (max-width: $lg) {
-            padding: 0 1em;
-        }
-    }
+
     .about {
         grid-area: about;
         text-align: center;
@@ -91,110 +88,116 @@
             text-align: center;
         }
     }
+
     .shows {
         grid-area: shows;
-    }
-    .posts {
-        grid-area: posts;
-    }
-    .opentabs {
-        grid-area: tabs;
-    }
 
-    .show {
-        display: grid;
-        grid-template-columns: 1fr;
-        div {
-            display: inline;
-        }
-        & + .show {
-            margin-top: 2em;
-            padding-top: 1.5em;
-            border-top: 1px solid #666;
-        }
-        @media (max-width: $md) {
-            .show-details {
-                font-style: italic;
-                margin-bottom: 1em;
+        .show {
+            display: grid;
+            grid-template-columns: 1fr;
+            div {
+                display: inline;
             }
-            .show-links,
-            .show-notes {
-                display: block;
-                a {
-                    text-decoration: underline;
+            & + .show {
+                margin-top: 2em;
+                padding-top: 1.5em;
+                border-top: 1px solid #666;
+            }
+            @media (max-width: $lg) {
+                .show-details {
+                    font-style: italic;
+                    margin-bottom: 1em;
+                }
+                .show-links,
+                .show-notes {
+                    display: block;
+                    a {
+                        text-decoration: underline;
+                    }
+                }
+                .show-flyer {
+                    img {
+                        min-width: 100%;
+                    }
                 }
             }
-        }
-        @media (min-width: $md) {
-            grid-template-columns: 2fr 6fr 2fr;
-            gap: 1em;
-            align-items: center;
-            background: rgba(0, 0, 0, 0.3);
-            .show-date {
-                background: #000;
-                border-radius: 0.5em;
-                text-align: center;
-                display: grid;
-                grid-template-columns: 1fr;
-                align-content: center;
-                margin: 1em 1em 1em 0;
-                aspect-ratio: 1 / 1;
-                .date-month {
-                    font-weight: 400;
-                    text-transform: lowercase;
-                    font-size: 2em;
-                    line-height: 1em;
-                }
-                .date-day {
-                    font-size: 1.2em;
-                }
-            }
-            .show-details {
-                .show-where {
-                    font-size: 1.1em;
-                    .show-venue {
-                        font-weight: bold;
+            @media (min-width: $lg) {
+                grid-template-columns: 2fr 6fr 2fr;
+                gap: 1em;
+                align-items: center;
+                background: rgba(0, 0, 0, 0.3);
+                .show-date {
+                    background: #000;
+                    border-radius: 0.5em;
+                    text-align: center;
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    align-content: center;
+                    margin: 1em 1em 1em 0;
+                    aspect-ratio: 1 / 1;
+                    .date-month {
+                        font-weight: 400;
+                        text-transform: lowercase;
+                        font-size: 2em;
+                        line-height: 1em;
+                    }
+                    .date-day {
                         font-size: 1.2em;
                     }
                 }
-                a {
-                    text-decoration: underline;
+                .show-details {
+                    .show-where {
+                        font-size: 1.1em;
+                        .show-venue {
+                            font-weight: bold;
+                            font-size: 1.2em;
+                        }
+                    }
+                    a {
+                        text-decoration: underline;
+                    }
                 }
             }
         }
     }
 
-    .post {
-        & + .post {
-            margin-top: 2em;
-            padding-top: 1.5em;
-            border-top: 1px solid #666;
-        }
-        .post-header {
-            margin-bottom: 1em;
-        }
-        .post-text {
-            margin-bottom: 1em;
-        }
-        .post-links {
-            a {
-                text-decoration: underline;
-                display: block;
+    .posts {
+        grid-area: posts;
+        .post {
+            & + .post {
+                margin-top: 2em;
+                padding-top: 1.5em;
+                border-top: 1px solid #666;
+            }
+            .post-header {
+                margin-bottom: 1em;
+            }
+            .post-text {
+                margin-bottom: 1em;
+            }
+            .post-links {
+                a {
+                    text-decoration: underline;
+                    display: block;
+                }
             }
         }
     }
 
-    .opentab {
-        & + .opentab {
-            margin-top: 0.5em;
-            padding-top: 0.5em;
-            border-top: 1px solid #666;
-        }
-        a {
-            text-decoration: underline;
-        }
-        .tab-description {
-            font-size: 0.8em;
+    .opentabs {
+        grid-area: tabs;
+        .opentab {
+            & + .opentab {
+                margin-top: 0.5em;
+                padding-top: 0.5em;
+                border-top: 1px solid #666;
+            }
+            a {
+                text-decoration: underline;
+            }
+            .tab-description {
+                font-size: 0.8em;
+            }
         }
     }
 }
