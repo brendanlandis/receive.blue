@@ -28,7 +28,7 @@ export default function NavDesktop() {
                         we're up to
                     </Link>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item nav-item-contact">
                     <span>contact:</span>
                     <br />
                     <Obfuscate email="b@slownames.net" />

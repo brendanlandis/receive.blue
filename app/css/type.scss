@@ -46,4 +46,7 @@ h2 {
     letter-spacing: 0.2em;
     margin-bottom: 0.5em;
     margin-top: 2em;
+    @media (min-width: $lg) {
+        margin-top: 0;
+    }
 }

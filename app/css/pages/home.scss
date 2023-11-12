@@ -24,7 +24,7 @@
     .posts,
     .opentabs {
         z-index: 2;
-        @media (max-width: $lg) {
+        @media (max-width: $xl) {
             padding: 0 1em;
         }
     }
@@ -52,6 +52,11 @@
         @media (min-width: $md) {
             opacity: 0.2;
             background: none;
+        }
+        @media (min-width: $lg) {
+            padding-top: 0;
+            margin-bottom: -50%;
+            overflow: visible;
         }
     }
 
@@ -86,6 +91,17 @@
         ul {
             margin-top: 1em;
             text-align: center;
+        }
+        @media (min-width: $lg) {
+            align-self: center;
+            p,
+            ul {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            ul {
+                margin-top: 1em;
+            }
         }
     }
 
