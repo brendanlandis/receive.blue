@@ -34,7 +34,7 @@ export default function Home() {
                         />
                     </div>
                     <div className="about">
-                        <p><span className='bigtext'>Receive</span> is a loud/quiet band from Ridgewood NY.</p>
+                        <p><span className='bandname'>Receive</span> is a loud/quiet band from Ridgewood NY.</p>
                         <ul>
                             <li>Brendan: vox, gtr</li>
                             <li>Calley: lead gtr</li>

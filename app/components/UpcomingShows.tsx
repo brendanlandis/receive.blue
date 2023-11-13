@@ -62,33 +62,45 @@ export default function UpcomingShows() {
             {formattedShows.map((show: Show) => (
                 <div className="show" key={show.id}>
                     <div className="show-details">
-                        <div className="show-month bigtext">
-                            {show.shortMonth}.{' '}
-                        </div>
-                        <div className="show-day bigtext">{show.shortDay} </div>
-                        <div className="show-where">
-                            <span className="show-venue bigtext">
-                                @ {show.venue}{' '}
-                            </span>
-                            {show.city !== 'Brooklyn, NY' ? (
-                                <span className="show-city">
-                                    ({show.city}){' '}
-                                </span>
-                            ) : null}
-                        </div>
-                        <div className="show-otherbands">
-                            with {show.otherBands}
-                        </div>
-                        {show.eventLinks.length > 0 && (
-                            <div className="show-links">
-                                {show.eventLinks.map((link) => (
-                                    <a key={link.id} href={link.url}>
-                                        {link.text}{' '}
-                                    </a>
-                                ))}
+                        <div className="show-when">
+                            <div className="show-when-wrapper">
+                                <div className="show-month">
+                                    {show.shortMonth}
+                                </div>
+                                <div className="show-day">{show.shortDay} </div>
                             </div>
-                        )}
-                        <div className="show-notes">{show.notes}</div>
+                        </div>
+                        <div className="show-etc">
+                            <div className="show-where">
+                                <span className="show-venue">
+                                    {show.venue}{' '}
+                                </span>
+                                {show.city !== 'Brooklyn, NY' ? (
+                                    <span className="show-city">
+                                        <span>(</span>
+                                        {show.city}
+                                        <span>)</span>{' '}
+                                    </span>
+                                ) : null}
+                            </div>
+                            {show.otherBands && (
+                                <div className="show-otherbands">
+                                    with {show.otherBands}
+                                </div>
+                            )}
+                            {show.eventLinks.length > 0 && (
+                                <div className="show-links">
+                                    {show.eventLinks.map((link) => (
+                                        <a key={link.id} href={link.url}>
+                                            {link.text}{' '}
+                                        </a>
+                                    ))}
+                                </div>
+                            )}
+                            {show.notes && (
+                                <div className="show-notes">{show.notes}</div>
+                            )}
+                        </div>
                     </div>
                     <div className="show-flyer">
                         {show.flyers.map((flyer) => (

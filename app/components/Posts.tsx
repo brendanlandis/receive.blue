@@ -46,10 +46,10 @@ export default function Posts() {
             {formattedPosts.map((post: Post) => (
                 <div className="post" key={post.id}>
                     <div className="post-header">
-                        <div className="post-headline bigtext">
+                        <div className="post-headline">
                             {post.headline}
                         </div>
-                        <div className="post-date smalltext">{post.date}</div>
+                        <div className="post-date">{post.date}</div>
                     </div>
                     <div className="post-text">{post.text}</div>
                     <div className="post-links">

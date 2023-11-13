@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "helpers";
 @import "layout";
 @import "type";
 
 // components
-@import "components/helpers";
 @import "components/navdesktop";
 @import "components/navmobile";
 @import "components/navstates";

@@ -19,7 +19,7 @@
     display: none !important;
 }
 
-.bigtext {
+@mixin bigtext {
     font-size: 1.8em;
     line-height: 1em;
     text-transform: uppercase;
@@ -27,9 +27,26 @@
     font-style: italic;
 }
 
-.smalltext {
+@mixin smalltext {
     font-size: 0.8em;
     text-transform: uppercase;
     /* font-weight: bold; */
     font-style: italic;
+}
+
+@mixin outlinedtext {
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 1), 1px -1px 0 rgba(0, 0, 0, 1),
+        -1px 1px 0 rgba(0, 0, 0, 1), 1px 1px 0 rgba(0, 0, 0, 1);
+}
+
+@mixin gradienttext {
+    background: -webkit-linear-gradient(45deg, #FF8DDB, #fff 15%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@mixin moregradienttext {
+    background: -webkit-linear-gradient(215deg, #FF8DDB, #fff 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
