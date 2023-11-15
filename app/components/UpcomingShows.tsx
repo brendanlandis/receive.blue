@@ -104,7 +104,7 @@ export default function UpcomingShows() {
                     </div>
                     <div className="show-flyer">
                         {show.flyers.map((flyer) => (
-                            <a href={flyer.urlLarge}>
+                            <a href={flyer.urlLarge} key={flyer.id}>
                                 <img src={flyer.urlSmall} alt={flyer.alt} />
                             </a>
                         ))}
