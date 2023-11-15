@@ -1,4 +1,4 @@
-#home {
+#shows {
     display: grid;
     gap: 2em;
     padding-bottom: 1em;
@@ -6,82 +6,31 @@
     grid-template-areas:
         'logo'
         'image'
-        'about'
-        'shows'
-        'posts'
-        'tabs';
-    @media (min-width: $md) {
-        grid-template-columns: 2fr 1fr;
-        grid-template-areas:
-            'logo logo'
-            'image image'
-            'about about'
-            'shows shows'
-            'posts tabs';
-    }
+        'upcoming'
+        'previous';
     @media (min-width: $lg) {
         grid-column-gap: 1em;
         grid-row-gap: 2em;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         grid-template-areas:
-            'image image image image image'
-            'logo logo logo logo logo'
-            'about about shows shows shows'
-            'posts posts shows shows shows'
-            'tabs tabs shows shows shows';
+            'image'
+            'logo'
+            'upcoming'
+            'previous';
     }
 
-    .about,
-    .shows,
-    .posts,
-    .opentabs {
+    .upcoming,
+    .previous {
         z-index: 2;
     }
-    @media (max-width: $lg) {
-        .about,
-        .posts,
-        .opentabs,
-        .shows {
+    @media (max-width: $xl) {
+        .upcoming,
+        .previous {
             padding: 0 1em;
         }
     }
-    @media (min-width: $lg) and (max-width: $xl) {
-        .about,
-        .posts,
-        .opentabs {
-            padding: 0 0 0 1em;
-        }
-        .shows {
-            padding: 0 1em 0 0;
-        }
-    }
 
-    .about {
-        grid-area: about;
-        text-align: center;
-        .bandname {
-            @include bigtext;
-            @include moregradienttext;
-        }
-        ul {
-            margin-top: 1em;
-            text-align: center;
-        }
-        @media (min-width: $lg) {
-            align-self: center;
-            p,
-            ul {
-                max-width: 300px;
-                margin: 0 auto;
-            }
-            ul {
-                margin-top: 1em;
-            }
-        }
-    }
-
-    .shows {
-        grid-area: shows;
+    .upcoming {
+        grid-area: upcoming;
         .show {
             display: grid;
             grid-template-columns: 1fr;
@@ -162,52 +111,6 @@
                 a {
                     text-decoration: underline;
                 }
-            }
-        }
-    }
-
-    .posts {
-        grid-area: posts;
-        .post {
-            & + .post {
-                margin-top: 2em;
-                padding-top: 1.5em;
-                border-top: 1px solid #666;
-            }
-            .post-header {
-                margin-bottom: 1em;
-                .post-headline {
-                    @include bigtext;
-                }
-                .post-date {
-                    @include smalltext;
-                }
-            }
-            .post-text {
-                margin-bottom: 1em;
-            }
-            .post-links {
-                a {
-                    text-decoration: underline;
-                    display: block;
-                }
-            }
-        }
-    }
-
-    .opentabs {
-        grid-area: tabs;
-        .opentab {
-            & + .opentab {
-                margin-top: 0.5em;
-                padding-top: 0.5em;
-                border-top: 1px solid #666;
-            }
-            a {
-                text-decoration: underline;
-            }
-            .tab-description {
-                font-size: 0.8em;
             }
         }
     }

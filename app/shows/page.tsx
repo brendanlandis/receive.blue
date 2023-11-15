@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Header from '../components/Header';
 import UpcomingShows from '../components/UpcomingShows';
 
 export const metadata: Metadata = {
@@ -9,23 +10,13 @@ export default function Shows() {
     return (
         <>
             <main id="shows">
-                <div className="logo">
-                    <img src="/logo.png" alt="Receive logo" />
-                </div>
-                <div className="image">
-                    <img
-                        src="/header-mobile.jpg"
-                        className="header-mobile"
-                        alt="receive live at hart bar"
-                    />
-                    <img
-                        src="/header-desktop.jpg"
-                        className="header-desktop"
-                        alt="receive live at hart bar"
-                    />
-                </div>
-                <div className="shows">
+                <Header />
+                <div className="upcoming">
                     <h2>shows</h2>
+                    <UpcomingShows />
+                </div>
+                <div className="previous">
+                    <h2>old shows</h2>
                     <UpcomingShows />
                 </div>
             </main>
