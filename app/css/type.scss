@@ -42,7 +42,7 @@ h1 {
 
 h2 {
     font-size: 3em;
-    @include gradienttext;
+    @include outlinedtext;
     line-height: 1em;
     letter-spacing: 0.2em;
     margin-bottom: 0.5em;
