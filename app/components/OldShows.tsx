@@ -60,17 +60,14 @@ export default function OldShows() {
 
     const formattedShows = shows ? formatShows(shows) : [];
 
-    const MasonryImages = [
-        'https://api.slownames.net/uploads/medium_flyer_230914_receive_1bdeced660.jpg',
-        'https://api.slownames.net/uploads/sept25flyer_a2bcc12ae3.jpeg',
-        'https://api.slownames.net/uploads/medium_IMG_1732_fa6503f7d8.png',
-        'https://api.slownames.net/uploads/medium_98_C1_E617_8095_4101_B86_F_4_D4_F368_A49_CF_57cc45c5bb.jpg',
-        'https://api.slownames.net/uploads/medium_220604_flyer_8449d8401f.jpg',
-        'https://api.slownames.net/uploads/medium_IMG_0909_263ccb8a4c.jpg',
-    ];
+    const MasonryImages = formattedShows.reduce(
+        (images: string[], show) =>
+            images.concat(show.flyers.map((flyer) => flyer.urlSmall)),
+        []
+    );
 
     return (
-        <div className="show-listd">
+        <div className="show-list">
             <Masonry
                 items={MasonryImages}
                 config={{
@@ -86,17 +83,17 @@ export default function OldShows() {
                     />
                 )}
             />
-            {formattedShows.map((show: Show) => (
+            {/* {formattedShows.map((show: Show) => (
                 <div className="show" key={show.id}>
                     <div className="show-flyer">
-                        {/* {show.flyers.map((flyer) => (
+                        {show.flyers.map((flyer) => (
                             <a href={flyer.urlLarge} key={flyer.id}>
                                 <img src={flyer.urlSmall} alt={flyer.alt} />
                             </a>
-                        ))} */}
+                        ))}
                     </div>
                 </div>
-            ))}
+            ))} */}
         </div>
     );
 }
