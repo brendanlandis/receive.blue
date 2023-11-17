@@ -24,12 +24,15 @@ export default function Posts() {
             attachments: post.attributes.attachments.map((attachment) => ({
                 id: attachment.id,
                 text: attachment.linkText,
-                url: `${process.env.NEXT_PUBLIC_STRAPI_URL}${attachment.file.data.attributes.url}`,
+                url: attachment.file.data
+                    ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${attachment.file.data.attributes.url}`
+                    : '',
             })),
         }));
 
         formattedPostsData.sort(
-            (a, b) => new Date(b.realDate).getTime() - new Date(a.realDate).getTime()
+            (a, b) =>
+                new Date(b.realDate).getTime() - new Date(a.realDate).getTime()
         );
         const currentDate = new Date();
         const filteredPostsData = formattedPostsData.filter(
@@ -46,9 +49,7 @@ export default function Posts() {
             {formattedPosts.map((post: Post) => (
                 <div className="post" key={post.id}>
                     <div className="post-header">
-                        <div className="post-headline">
-                            {post.headline}
-                        </div>
+                        <div className="post-headline">{post.headline}</div>
                         <div className="post-date">{post.date}</div>
                     </div>
                     <div className="post-text">{post.text}</div>
