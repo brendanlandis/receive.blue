@@ -14,14 +14,15 @@ export default function Else() {
                 <div className="text">
                     <h2>other stuff we're up to</h2>
                     <p>
-                        All four of us play different instruments in{' '}
+                        Calley writes songs while the rest of us switch
+                        instruments in{' '}
                         <Link href="https://www.instagram.com/_starcard">
                             Star Card
                         </Link>
                         .
                     </p>
                     <p>
-                        Calley and Brendan play noise as{' '}
+                        Brendan and Calley write songs together as{' '}
                         <Link href="https://www.instagram.com/__receiver/">
                             Receiver
                         </Link>

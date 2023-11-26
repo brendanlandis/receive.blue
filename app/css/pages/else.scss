@@ -20,8 +20,11 @@
         z-index: 2;
         text-align: center;
         p {
-            margin-bottom: 1em;
+            margin: 0 auto 1em auto;
             font-size: 1.5em;
+            @media (min-width: $lg) {
+                max-width: 60%;
+            }
         }
     }
     a {
