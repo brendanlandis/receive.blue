@@ -30,7 +30,7 @@ export default function Home() {
                     <UpcomingShows />
                 </div>
                 <div className="posts">
-                    <h2>news</h2>
+                    <h2>big talk</h2>
                     <Posts />
                 </div>
                 <div className="opentabs">
