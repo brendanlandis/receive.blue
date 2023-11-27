@@ -15,8 +15,8 @@ export default function Home() {
                 <Header />
                 <div className="about">
                     <p>
-                        <span className="bandname">Receive</span> is a
-                        loud/quiet band from Ridgewood NY.
+                        <span className="bandname">Receive</span> is an art rock
+                        band from Ridgewood NY.
                     </p>
                     <ul>
                         <li>Brendan: vox, gtr</li>
