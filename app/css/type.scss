@@ -50,4 +50,8 @@ h2 {
     @media (min-width: $lg) {
         margin-top: 0;
     }
+    #shows .upcoming &,
+    #else .text & {
+        margin-top: 0;
+    }
 }
