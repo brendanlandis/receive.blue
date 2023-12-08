@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+
     return (
         <>
             <main id="home">
@@ -25,10 +26,7 @@ export default function Home() {
                         <li>Monroe: drums</li>
                     </ul>
                 </div>
-                <div className="shows">
-                    <h2>shows</h2>
-                    <UpcomingShows />
-                </div>
+                <UpcomingShows />
                 <div className="posts">
                     <h2>big talk</h2>
                     <Posts />
