@@ -26,6 +26,7 @@ export default function OldShows() {
             date: show.attributes.date,
             shortMonth: format(parseISO(show.attributes.date), 'MMM'),
             shortDay: format(parseISO(show.attributes.date), 'do'),
+            shortDate: format(parseISO(show.attributes.date), 'M/d'),
             doors: show.attributes.doors,
             sound: show.attributes.sound,
             venue: show.attributes.venue,
@@ -44,6 +45,14 @@ export default function OldShows() {
                 urlSmall: flyer.attributes.formats.medium
                     ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${flyer.attributes.formats.medium.url}`
                     : `${process.env.NEXT_PUBLIC_STRAPI_URL}${flyer.attributes.url}`,
+            })),
+            documentation: show.attributes.documentation.data?.map((document) => ({
+                id: document.id,
+                alt: document.attributes.alternativeText,
+                urlLarge: `${process.env.NEXT_PUBLIC_STRAPI_URL}${document.attributes.url}`,
+                urlSmall: document.attributes.formats.medium
+                    ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${document.attributes.formats.medium.url}`
+                    : `${process.env.NEXT_PUBLIC_STRAPI_URL}${document.attributes.url}`,
             })),
         }));
 

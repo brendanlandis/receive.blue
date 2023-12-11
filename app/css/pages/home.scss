@@ -82,6 +82,9 @@
 
     .shows {
         grid-area: shows;
+        .toptext {
+            margin-bottom: 1em;
+        }
         .show {
             display: grid;
             grid-template-columns: 1fr;
@@ -111,9 +114,11 @@
                 align-items: center;
                 .show-when {
                     text-align: center;
-                    text-shadow: -1px -1px 0 rgba(0,0,0,0.5), 1px -1px 0 rgba(0,0,0,0.5),
-                        -1px 1px 0 rgba(0,0,0,0.5), 1px 1px 0 rgba(0,0,0,0.5);
-                    border: 0.1em solid rgba(0,0,0,0.5);
+                    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5),
+                        1px -1px 0 rgba(0, 0, 0, 0.5),
+                        -1px 1px 0 rgba(0, 0, 0, 0.5),
+                        1px 1px 0 rgba(0, 0, 0, 0.5);
+                    border: 0.1em solid rgba(0, 0, 0, 0.5);
                     background-image: linear-gradient(
                         45deg,
                         hsl(285deg 96% 38%) 0%,
@@ -151,8 +156,10 @@
                     .show-venue {
                         font-weight: bold;
                         font-size: 1.2em;
-                        text-shadow: -1px -1px 0 rgba(0,0,0,0.5), 1px -1px 0 rgba(0,0,0,0.5),
-                            -1px 1px 0 rgba(0,0,0,0.5), 1px 1px 0 rgba(0,0,0,0.5);
+                        text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5),
+                            1px -1px 0 rgba(0, 0, 0, 0.5),
+                            -1px 1px 0 rgba(0, 0, 0, 0.5),
+                            1px 1px 0 rgba(0, 0, 0, 0.5);
                     }
                 }
                 .show-links,

@@ -39,6 +39,20 @@ export interface RawShowData {
                 };
             }>;
         };
+        documentation: {
+            data: Array<{
+                id: number;
+                attributes: {
+                    alternativeText: string;
+                    url: string;
+                    formats: {
+                        medium: {
+                            url: string;
+                        };
+                    };
+                };
+            }>;
+        };
     };
 }
 
@@ -52,6 +66,7 @@ export interface Show {
     date: string;
     shortMonth: string;
     shortDay: string;
+    shortDate: string;
     doors: string;
     sound: string;
     venue: string;
@@ -64,6 +79,12 @@ export interface Show {
         text: string;
     }>;
     flyers: Array<{
+        id: number;
+        alt: string;
+        urlLarge: string;
+        urlSmall: string;
+    }>;
+    documentation: Array<{
         id: number;
         alt: string;
         urlLarge: string;

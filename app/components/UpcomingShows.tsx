@@ -3,6 +3,7 @@ import useAxios from 'axios-hooks';
 import { Show, RawShowData } from '@/app/types';
 import format from 'date-fns/format';
 import parseISO from 'date-fns/parseISO';
+import { Masonry } from 'react-plock';
 
 // TODO if two of our bands are playing, the one that isn't Receive should be added to the otherBands field
 
@@ -14,38 +15,49 @@ export default function UpcomingShows() {
     if (loading) return <p>loading</p>;
     if (error) return <p>error</p>;
 
-    const formatShows = (shows: { data: RawShowData[] }): Show[] => {
-        const formattedShowsData: Show[] = shows.data.map((show) => ({
-            id: show.id,
-            bands: show.attributes.myBand.map((band) => ({
-                id: band.id,
-                bandname: band.band.data.attributes.bandname,
-                displayBandname: band.displayBandname,
-            })),
-            date: show.attributes.date,
-            shortMonth: format(parseISO(show.attributes.date), 'MMM'),
-            shortDay: format(parseISO(show.attributes.date), 'do'),
-            doors: show.attributes.doors,
-            sound: show.attributes.sound,
-            venue: show.attributes.venue,
-            city: show.attributes.city,
-            notes: show.attributes.notes,
-            otherBands: show.attributes.otherBands,
-            eventLinks: show.attributes.eventLinks.map((link) => ({
-                id: link.id,
-                url: link.url,
-                text: link.text,
-            })),
-            flyers: show.attributes.flyers.data.map((flyer) => ({
-                id: flyer.id,
-                alt: flyer.attributes.alternativeText,
-                urlLarge: `${process.env.NEXT_PUBLIC_STRAPI_URL}${flyer.attributes.url}`,
-                urlSmall: flyer.attributes.formats.medium
-                    ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${flyer.attributes.formats.medium.url}`
-                    : `${process.env.NEXT_PUBLIC_STRAPI_URL}${flyer.attributes.url}`,
-            })),
-        }));
+    const formattedShowsData: Show[] = shows.data.map((show: RawShowData) => ({
+        id: show.id,
+        bands: show.attributes.myBand.map((band) => ({
+            id: band.id,
+            bandname: band.band.data.attributes.bandname,
+            displayBandname: band.displayBandname,
+        })),
+        date: show.attributes.date,
+        shortMonth: format(parseISO(show.attributes.date), 'MMM'),
+        shortDay: format(parseISO(show.attributes.date), 'do'),
+        shortDate: format(parseISO(show.attributes.date), 'M/d'),
+        doors: show.attributes.doors,
+        sound: show.attributes.sound,
+        venue: show.attributes.venue,
+        city: show.attributes.city,
+        notes: show.attributes.notes,
+        otherBands: show.attributes.otherBands,
+        eventLinks: show.attributes.eventLinks.map((link) => ({
+            id: link.id,
+            url: link.url,
+            text: link.text,
+        })),
+        flyers: show.attributes.flyers.data.map((flyer) => ({
+            id: flyer.id,
+            alt: flyer.attributes.alternativeText,
+            urlLarge: `${process.env.NEXT_PUBLIC_STRAPI_URL}${flyer.attributes.url}`,
+            urlSmall: flyer.attributes.formats.medium
+                ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${flyer.attributes.formats.medium.url}`
+                : `${process.env.NEXT_PUBLIC_STRAPI_URL}${flyer.attributes.url}`,
+        })),
+        documentation: show.attributes.documentation.data?.map((document) => ({
+            id: document.id,
+            alt: document.attributes.alternativeText,
+            urlLarge: `${process.env.NEXT_PUBLIC_STRAPI_URL}${document.attributes.url}`,
+            urlSmall: document.attributes.formats.medium
+                ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${document.attributes.formats.medium.url}`
+                : `${process.env.NEXT_PUBLIC_STRAPI_URL}${document.attributes.url}`,
+        })),
+    }));
 
+    console.log(formattedShowsData);
+
+    const formatUpcomingShows = (shows: { data: RawShowData[] }): Show[] => {
         formattedShowsData.sort(
             (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
         );
@@ -53,20 +65,49 @@ export default function UpcomingShows() {
         const filteredShowsData = formattedShowsData.filter(
             (show) => new Date(show.date) >= currentDate
         );
-
         return filteredShowsData;
     };
 
-    const formattedShows = shows ? formatShows(shows) : [];
+    const formatLastShow = (shows: { data: RawShowData[] }): Show | null => {
+        const currentDate = new Date();
+
+        const mostRecentShow = formattedShowsData.reduce(
+            (maxShow: Show | null, show) => {
+                const showDate = new Date(show.date);
+
+                if (
+                    showDate < currentDate &&
+                    (!maxShow || showDate > new Date(maxShow.date))
+                ) {
+                    return show;
+                }
+
+                return maxShow;
+            },
+            null
+        );
+
+        return mostRecentShow;
+    };
+
+    const upcomingShows = shows ? formatUpcomingShows(shows) : [];
+
+    const lastShow: Show | null = shows ? formatLastShow(shows) : null;
+
+    const MasonryImages =
+        lastShow?.documentation.map((document) => ({
+            urlSmall: document.urlSmall,
+            urlLarge: document.urlLarge,
+        })) || [];
 
     return (
         <>
-            {formattedShows.length > 1 && (
-                <>
-                    <div className="shows">
-                        <h2>shows</h2>
+            <div className="shows">
+                <h2>shows</h2>
+                {upcomingShows.length > 0 ? (
+                    <>
                         <div className="show-list">
-                            {formattedShows.map((show: Show) => (
+                            {upcomingShows.map((show: Show) => (
                                 <div className="show" key={show.id}>
                                     <div className="show-details">
                                         <div className="show-when">
@@ -135,9 +176,47 @@ export default function UpcomingShows() {
                                 </div>
                             ))}
                         </div>
-                    </div>
-                </>
-            )}
+                    </>
+                ) : (
+                    <>
+                        {lastShow ? (
+                            <>
+                                <div className='toptext'>
+                                    Nothing announced right now, but here are
+                                    some pics from our set at {lastShow.venue}{' '}
+                                    on {lastShow.shortDate}:
+                                </div>
+                                <div className="lastshow-pics">
+                                    <Masonry
+                                        items={MasonryImages}
+                                        config={{
+                                            columns: [1, 1, 2],
+                                            gap: [16, 16, 16],
+                                            media: [768, 1024, 1280],
+                                        }}
+                                        render={(item, idx) => (
+                                            <>
+                                                <a href={item.urlLarge}>
+                                                    <img
+                                                        key={idx}
+                                                        src={item.urlSmall}
+                                                        style={{
+                                                            width: '100%',
+                                                            height: 'auto',
+                                                        }}
+                                                    />
+                                                </a>
+                                            </>
+                                        )}
+                                    />
+                                </div>
+                            </>
+                        ) : (
+                            <div>nothin</div>
+                        )}
+                    </>
+                )}
+            </div>
         </>
     );
 }
