@@ -31,6 +31,9 @@
 
     .upcoming {
         grid-area: upcoming;
+        .toptext {
+            margin-bottom: 1em;
+        }
         .show-list {
             @media (min-width: $md) {
                 display: grid;

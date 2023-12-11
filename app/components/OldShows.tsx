@@ -46,14 +46,16 @@ export default function OldShows() {
                     ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${flyer.attributes.formats.medium.url}`
                     : `${process.env.NEXT_PUBLIC_STRAPI_URL}${flyer.attributes.url}`,
             })),
-            documentation: show.attributes.documentation.data?.map((document) => ({
-                id: document.id,
-                alt: document.attributes.alternativeText,
-                urlLarge: `${process.env.NEXT_PUBLIC_STRAPI_URL}${document.attributes.url}`,
-                urlSmall: document.attributes.formats.medium
-                    ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${document.attributes.formats.medium.url}`
-                    : `${process.env.NEXT_PUBLIC_STRAPI_URL}${document.attributes.url}`,
-            })),
+            documentation: show.attributes.documentation.data?.map(
+                (document) => ({
+                    id: document.id,
+                    alt: document.attributes.alternativeText,
+                    urlLarge: `${process.env.NEXT_PUBLIC_STRAPI_URL}${document.attributes.url}`,
+                    urlSmall: document.attributes.formats.medium
+                        ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${document.attributes.formats.medium.url}`
+                        : `${process.env.NEXT_PUBLIC_STRAPI_URL}${document.attributes.url}`,
+                })
+            ),
         }));
 
         formattedShowsData.sort(
@@ -70,8 +72,13 @@ export default function OldShows() {
     const formattedShows = shows ? formatShows(shows) : [];
 
     const MasonryImages = formattedShows.reduce(
-        (images: string[], show) =>
-            images.concat(show.flyers.map((flyer) => flyer.urlSmall)),
+        (images: { urlSmall: string; urlLarge: string }[], show) =>
+            images.concat(
+                show.flyers.map((flyer) => ({
+                    urlSmall: flyer.urlSmall,
+                    urlLarge: flyer.urlLarge,
+                }))
+            ),
         []
     );
 
@@ -85,24 +92,17 @@ export default function OldShows() {
                     media: [768, 1024, 1280],
                 }}
                 render={(item, idx) => (
-                    <img
-                        key={idx}
-                        src={item}
-                        style={{ width: '100%', height: 'auto' }}
-                    />
+                    <>
+                        <a href={item.urlLarge}>
+                            <img
+                                key={idx}
+                                src={item.urlSmall}
+                                style={{ width: '100%', height: 'auto' }}
+                            />
+                        </a>
+                    </>
                 )}
             />
-            {/* {formattedShows.map((show: Show) => (
-                <div className="show" key={show.id}>
-                    <div className="show-flyer">
-                        {show.flyers.map((flyer) => (
-                            <a href={flyer.urlLarge} key={flyer.id}>
-                                <img src={flyer.urlSmall} alt={flyer.alt} />
-                            </a>
-                        ))}
-                    </div>
-                </div>
-            ))} */}
         </div>
     );
 }

@@ -13,7 +13,6 @@ export default function Shows() {
             <main id="shows">
                 <Header />
                 <div className="upcoming">
-                    <h2>shows</h2>
                     <UpcomingShows />
                 </div>
                 <div className="previous">
