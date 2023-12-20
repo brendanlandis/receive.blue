@@ -1,8 +1,8 @@
 'use client';
 import useAxios from 'axios-hooks';
 import { Post, RawPostData } from '@/app/types';
-import format from 'date-fns/format';
-import parseISO from 'date-fns/parseISO';
+import { format } from 'date-fns/format';
+import { parseISO } from 'date-fns/parseISO';
 import Markdown from 'react-markdown';
 
 // TODO if the post is about two of our bands, the one that isn't Receive should be added to the otherBands field
@@ -53,7 +53,9 @@ export default function Posts() {
                         <div className="post-headline">{post.headline}</div>
                         <div className="post-date">{post.date}</div>
                     </div>
-                    <div className="post-text"><Markdown>{post.text}</Markdown></div>
+                    <div className="post-text">
+                        <Markdown>{post.text}</Markdown>
+                    </div>
                     <div className="post-links">
                         {post.attachments.map((attachment) => (
                             <a href={attachment.url} key={attachment.id}>

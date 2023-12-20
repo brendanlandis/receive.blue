@@ -1,8 +1,8 @@
 'use client';
 import useAxios from 'axios-hooks';
 import { Show, RawShowData } from '@/app/types';
-import format from 'date-fns/format';
-import parseISO from 'date-fns/parseISO';
+import { format } from 'date-fns/format';
+import { parseISO } from 'date-fns/parseISO';
 import { Masonry } from 'react-plock';
 
 // TODO if two of our bands are playing, the one that isn't Receive should be added to the otherBands field
