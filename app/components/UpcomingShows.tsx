@@ -45,17 +45,17 @@ export default function UpcomingShows() {
                 ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${flyer.attributes.formats.medium.url}`
                 : `${process.env.NEXT_PUBLIC_STRAPI_URL}${flyer.attributes.url}`,
         })),
-        documentation: show.attributes.documentation.data?.map((document) => ({
-            id: document.id,
-            alt: document.attributes.alternativeText,
-            urlLarge: `${process.env.NEXT_PUBLIC_STRAPI_URL}${document.attributes.url}`,
-            urlSmall: document.attributes.formats.medium
-                ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${document.attributes.formats.medium.url}`
-                : `${process.env.NEXT_PUBLIC_STRAPI_URL}${document.attributes.url}`,
+        photoDocumentation: show.attributes.photoDocumentation?.photosToShow.data?.map((photo) => ({
+            id: photo.id,
+            alt: photo.attributes.alternativeText,
+            urlLarge: `${process.env.NEXT_PUBLIC_STRAPI_URL}${photo.attributes.url}`,
+            urlSmall: photo.attributes.formats.medium
+                ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${photo.attributes.formats.medium.url}`
+                : `${process.env.NEXT_PUBLIC_STRAPI_URL}${photo.attributes.url}`,
         })),
     }));
 
-    console.log(formattedShowsData);
+    // console.log(formattedShowsData);
 
     const formatUpcomingShows = (shows: { data: RawShowData[] }): Show[] => {
         formattedShowsData.sort(
@@ -95,9 +95,9 @@ export default function UpcomingShows() {
     const lastShow: Show | null = shows ? formatLastShow(shows) : null;
 
     const MasonryImages =
-        lastShow?.documentation.map((document) => ({
-            urlSmall: document.urlSmall,
-            urlLarge: document.urlLarge,
+        lastShow?.photoDocumentation.map((photo) => ({
+            urlSmall: photo.urlSmall,
+            urlLarge: photo.urlLarge,
         })) || [];
 
     return (
