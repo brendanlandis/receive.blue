@@ -37,7 +37,7 @@ export const GetShowDetails = (show: RawShowData): Show => {
             id: photo.id,
             alt: photo.attributes.alternativeText,
             urlLarge: `${process.env.NEXT_PUBLIC_STRAPI_URL}${photo.attributes.url}`,
-            urlSmall: photo.attributes.formats.medium
+            urlSmall: photo.attributes.formats?.medium
                 ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${photo.attributes.formats.medium.url}`
                 : `${process.env.NEXT_PUBLIC_STRAPI_URL}${photo.attributes.url}`,
         })),
