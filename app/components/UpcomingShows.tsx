@@ -45,7 +45,7 @@ export default function UpcomingShows() {
                 ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${flyer.attributes.formats.medium.url}`
                 : `${process.env.NEXT_PUBLIC_STRAPI_URL}${flyer.attributes.url}`,
         })),
-        photoDocumentation: show.attributes.photoDocumentation?.photosToShow.data?.map((photo) => ({
+        documentationUploads: show.attributes.documentationUploads?.usableDocumentation?.data?.map((photo) => ({
             id: photo.id,
             alt: photo.attributes.alternativeText,
             urlLarge: `${process.env.NEXT_PUBLIC_STRAPI_URL}${photo.attributes.url}`,
@@ -58,34 +58,24 @@ export default function UpcomingShows() {
     // console.log(formattedShowsData);
 
     const formatUpcomingShows = (shows: { data: RawShowData[] }): Show[] => {
-        formattedShowsData.sort(
-            (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
-        );
+        formattedShowsData.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
         const currentDate = new Date();
-        const filteredShowsData = formattedShowsData.filter(
-            (show) => new Date(show.date) >= currentDate
-        );
+        const filteredShowsData = formattedShowsData.filter((show) => new Date(show.date) >= currentDate);
         return filteredShowsData;
     };
 
     const formatLastShow = (shows: { data: RawShowData[] }): Show | null => {
         const currentDate = new Date();
 
-        const mostRecentShow = formattedShowsData.reduce(
-            (maxShow: Show | null, show) => {
-                const showDate = new Date(show.date);
+        const mostRecentShow = formattedShowsData.reduce((maxShow: Show | null, show) => {
+            const showDate = new Date(show.date);
 
-                if (
-                    showDate < currentDate &&
-                    (!maxShow || showDate > new Date(maxShow.date))
-                ) {
-                    return show;
-                }
+            if (showDate < currentDate && (!maxShow || showDate > new Date(maxShow.date))) {
+                return show;
+            }
 
-                return maxShow;
-            },
-            null
-        );
+            return maxShow;
+        }, null);
 
         return mostRecentShow;
     };
@@ -95,7 +85,7 @@ export default function UpcomingShows() {
     const lastShow: Show | null = shows ? formatLastShow(shows) : null;
 
     const MasonryImages =
-        lastShow?.photoDocumentation.map((photo) => ({
+        lastShow?.documentationUploads?.map((photo) => ({
             urlSmall: photo.urlSmall,
             urlLarge: photo.urlLarge,
         })) || [];
@@ -112,21 +102,14 @@ export default function UpcomingShows() {
                                     <div className="show-details">
                                         <div className="show-when">
                                             <div className="show-when-wrapper">
-                                                <div className="show-month">
-                                                    {show.shortMonth}
-                                                </div>
-                                                <div className="show-day">
-                                                    {show.shortDay}{' '}
-                                                </div>
+                                                <div className="show-month">{show.shortMonth}</div>
+                                                <div className="show-day">{show.shortDay} </div>
                                             </div>
                                         </div>
                                         <div className="show-etc">
                                             <div className="show-where">
-                                                <span className="show-venue">
-                                                    {show.venue}{' '}
-                                                </span>
-                                                {show.city !==
-                                                'Brooklyn, NY' ? (
+                                                <span className="show-venue">{show.venue} </span>
+                                                {show.city !== 'Brooklyn, NY' ? (
                                                     <span className="show-city">
                                                         <span>(</span>
                                                         {show.city}
@@ -135,41 +118,24 @@ export default function UpcomingShows() {
                                                 ) : null}
                                             </div>
                                             {show.otherBands && (
-                                                <div className="show-otherbands">
-                                                    with {show.otherBands}
-                                                </div>
+                                                <div className="show-otherbands">with {show.otherBands}</div>
                                             )}
                                             {show.eventLinks.length > 0 && (
                                                 <div className="show-links">
-                                                    {show.eventLinks.map(
-                                                        (link) => (
-                                                            <a
-                                                                key={link.id}
-                                                                href={link.url}
-                                                            >
-                                                                {link.text}{' '}
-                                                            </a>
-                                                        )
-                                                    )}
+                                                    {show.eventLinks.map((link) => (
+                                                        <a key={link.id} href={link.url}>
+                                                            {link.text}{' '}
+                                                        </a>
+                                                    ))}
                                                 </div>
                                             )}
-                                            {show.notes && (
-                                                <div className="show-notes">
-                                                    {show.notes}
-                                                </div>
-                                            )}
+                                            {show.notes && <div className="show-notes">{show.notes}</div>}
                                         </div>
                                     </div>
-                                    <div className="show-flyer">
+                                    <div className={`show-flyer grid-col-${show.flyers.length}`}>
                                         {show.flyers.map((flyer) => (
-                                            <a
-                                                href={flyer.urlLarge}
-                                                key={flyer.id}
-                                            >
-                                                <img
-                                                    src={flyer.urlSmall}
-                                                    alt={flyer.alt}
-                                                />
+                                            <a href={flyer.urlLarge} key={flyer.id}>
+                                                <img src={flyer.urlLarge} alt={flyer.alt} />
                                             </a>
                                         ))}
                                     </div>
@@ -182,8 +148,7 @@ export default function UpcomingShows() {
                         {lastShow ? (
                             <>
                                 <div className="toptext">
-                                    Nothing announced right now, but here are
-                                    some pics from our set at {lastShow.venue}{' '}
+                                    Nothing announced right now, but here are some pics from our set at {lastShow.venue}{' '}
                                     on {lastShow.shortDate}:
                                 </div>
                                 <div className="lastshow-pics">

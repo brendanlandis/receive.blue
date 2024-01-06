@@ -39,9 +39,9 @@ export interface RawShowData {
                 };
             }>;
         };
-        photoDocumentation: {
+        documentationUploads: {
             id: number;
-            photosToShow: {
+            usableDocumentation: {
                 data: Array<{
                     id: number;
                     attributes: {
@@ -87,7 +87,7 @@ export interface Show {
         urlLarge: string;
         urlSmall: string;
     }>;
-    photoDocumentation: Array<{
+    documentationUploads: Array<{
         id: number;
         alt: string;
         urlLarge: string;

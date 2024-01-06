@@ -102,6 +102,8 @@
             align-items: center;
             .show-flyer {
                 grid-area: flyer;
+                display: grid;
+                gap: 1em;
                 img {
                     min-width: 100%;
                 }

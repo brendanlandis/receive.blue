@@ -37,7 +37,7 @@
         .show-list {
             @media (min-width: $md) {
                 display: grid;
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr;
             }
         }
         .show {
@@ -57,6 +57,9 @@
             align-items: center;
             .show-flyer {
                 grid-area: flyer;
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 1em;
                 img {
                     min-width: 100%;
                 }

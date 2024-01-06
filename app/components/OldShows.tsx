@@ -46,7 +46,7 @@ export default function OldShows() {
                     ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${flyer.attributes.formats.medium.url}`
                     : `${process.env.NEXT_PUBLIC_STRAPI_URL}${flyer.attributes.url}`,
             })),
-            photoDocumentation: show.attributes.photoDocumentation?.photosToShow.data?.map((photo) => ({
+            documentationUploads: show.attributes.documentationUploads?.usableDocumentation?.data?.map((photo) => ({
                 id: photo.id,
                 alt: photo.attributes.alternativeText,
                 urlLarge: `${process.env.NEXT_PUBLIC_STRAPI_URL}${photo.attributes.url}`,
