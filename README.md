@@ -1,0 +1,1 @@
+TODO change Other Stuff page to use band logos instead of text
