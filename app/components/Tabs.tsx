@@ -6,7 +6,7 @@ import { Tab, RawTabData } from '@/app/types';
 
 export default function Tabs() {
     const [{ data: tabs, loading, error }, refetch] = useAxios(
-        'https://api.slownames.net/api/tabs?populate=*&filters[bands][id]=32'
+        'https://api.slownames.net/api/tabs?populate=*&filters[bands][id]=32&pagination[page]=1&pagination[pageSize]=5&sort=id:desc'
     );
 
     if (loading) return <p>loading</p>;
@@ -44,7 +44,6 @@ export default function Tabs() {
                     <div className='tab-description'>{tab.description}</div>
                 </div>
             ))}
-            {/* <pre>{JSON.stringify(tabs, null, 2)}</pre> */}
         </>
     );
 }

@@ -1,9 +1,8 @@
 'use client';
 import useAxios from 'axios-hooks';
 import { Show, RawShowData } from '@/app/types';
-import { format } from 'date-fns/format';
-import { parseISO } from 'date-fns/parseISO';
 import { Masonry } from 'react-plock';
+import { GetShowDetails } from './GetShowDetails';
 
 // TODO if two of our bands are playing, the one that isn't Receive should be added to the otherBands field
 
@@ -15,65 +14,29 @@ export default function UpcomingShows() {
     if (loading) return <p>loading</p>;
     if (error) return <p>error</p>;
 
-    const formattedShowsData: Show[] = shows.data.map((show: RawShowData) => ({
-        id: show.id,
-        bands: show.attributes.myBand.map((band) => ({
-            id: band.id,
-            bandname: band.band.data.attributes.bandname,
-            displayBandname: band.displayBandname,
-        })),
-        date: show.attributes.date,
-        shortMonth: format(parseISO(show.attributes.date), 'MMM'),
-        shortDay: format(parseISO(show.attributes.date), 'do'),
-        shortDate: format(parseISO(show.attributes.date), 'M/d'),
-        doors: show.attributes.doors,
-        sound: show.attributes.sound,
-        venue: show.attributes.venue,
-        city: show.attributes.city,
-        notes: show.attributes.notes,
-        otherBands: show.attributes.otherBands,
-        eventLinks: show.attributes.eventLinks.map((link) => ({
-            id: link.id,
-            url: link.url,
-            text: link.text,
-        })),
-        flyers: show.attributes.flyers.data.map((flyer) => ({
-            id: flyer.id,
-            alt: flyer.attributes.alternativeText,
-            urlLarge: `${process.env.NEXT_PUBLIC_STRAPI_URL}${flyer.attributes.url}`,
-            urlSmall: flyer.attributes.formats.medium
-                ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${flyer.attributes.formats.medium.url}`
-                : `${process.env.NEXT_PUBLIC_STRAPI_URL}${flyer.attributes.url}`,
-        })),
-        documentationUploads: show.attributes.documentationUploads?.usableDocumentation?.data?.map((photo) => ({
-            id: photo.id,
-            alt: photo.attributes.alternativeText,
-            urlLarge: `${process.env.NEXT_PUBLIC_STRAPI_URL}${photo.attributes.url}`,
-            urlSmall: photo.attributes.formats.medium
-                ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${photo.attributes.formats.medium.url}`
-                : `${process.env.NEXT_PUBLIC_STRAPI_URL}${photo.attributes.url}`,
-        })),
-    }));
+    const formatShows = (shows: { data: RawShowData[] }): Show[] => {
+        return shows.data.map(GetShowDetails);
+    };
 
-    // console.log(formattedShowsData);
+    const formattedShows = shows ? formatShows(shows) : [];
 
     const formatUpcomingShows = (shows: { data: RawShowData[] }): Show[] => {
-        formattedShowsData.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+        formattedShows.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
         const currentDate = new Date();
-        const filteredShowsData = formattedShowsData.filter((show) => new Date(show.date) >= currentDate);
+        const filteredShowsData = formattedShows.filter((show) => new Date(show.date) >= currentDate);
         return filteredShowsData;
     };
 
     const formatLastShow = (shows: { data: RawShowData[] }): Show | null => {
         const currentDate = new Date();
 
-        const mostRecentShow = formattedShowsData.reduce((maxShow: Show | null, show) => {
+        const mostRecentShow = formattedShows.reduce((maxShow: Show | null, show) => {
             const showDate = new Date(show.date);
 
             if (showDate < currentDate && (!maxShow || showDate > new Date(maxShow.date))) {
                 return show;
             }
-
+            console.log(maxShow);
             return maxShow;
         }, null);
 
@@ -148,8 +111,8 @@ export default function UpcomingShows() {
                         {lastShow ? (
                             <>
                                 <div className="toptext">
-                                    Nothing announced right now, but here are some pics from our set at {lastShow.venue}{' '}
-                                    on {lastShow.shortDate}:
+                                    Nothing announced right now, but here's us at {lastShow.venue} on{' '}
+                                    {lastShow.shortDate}:
                                 </div>
                                 <div className="lastshow-pics">
                                     <Masonry

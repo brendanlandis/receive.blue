@@ -65,7 +65,6 @@ export default function Posts() {
                     </div>
                 </div>
             ))}
-            {/* <pre>{JSON.stringify(posts, null, 2)}</pre> */}
         </>
     );
 }
