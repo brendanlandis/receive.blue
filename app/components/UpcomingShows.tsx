@@ -33,10 +33,15 @@ export default function UpcomingShows() {
         const mostRecentShow = formattedShows.reduce((maxShow: Show | null, show) => {
             const showDate = new Date(show.date);
 
-            if (showDate < currentDate && (!maxShow || showDate > new Date(maxShow.date))) {
-                return show;
+            if (
+                showDate < currentDate &&
+                show.documentation &&
+                show.documentation.some((doc) => doc.usable === true && doc.mime.includes('image'))
+            ) {
+                if (!maxShow || showDate > new Date(maxShow.date)) {
+                    return show;
+                }
             }
-            console.log(maxShow);
             return maxShow;
         }, null);
 
@@ -48,10 +53,12 @@ export default function UpcomingShows() {
     const lastShow: Show | null = shows ? formatLastShow(shows) : null;
 
     const MasonryImages =
-        lastShow?.documentation?.map((photo) => ({
-            urlSmall: photo.urlSmall,
-            urlLarge: photo.urlLarge,
-        })) || [];
+        (lastShow?.documentation || [])
+            .filter((photo) => photo.mime.includes('image') && photo.usable === true)
+            .map((photo) => ({
+                urlSmall: photo.urlSmall,
+                urlLarge: photo.urlLarge,
+            })) || [];
 
     return (
         <>
