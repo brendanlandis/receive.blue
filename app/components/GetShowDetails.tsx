@@ -33,13 +33,16 @@ export const GetShowDetails = (show: RawShowData): Show => {
                 ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${flyer.attributes.formats.medium.url}`
                 : `${process.env.NEXT_PUBLIC_STRAPI_URL}${flyer.attributes.url}`,
         })),
-        documentationUploads: show.attributes.documentationUploads?.usableDocumentation?.data?.map((photo) => ({
-            id: photo.id,
-            alt: photo.attributes.alternativeText,
-            urlLarge: `${process.env.NEXT_PUBLIC_STRAPI_URL}${photo.attributes.url}`,
-            urlSmall: photo.attributes.formats?.medium
-                ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${photo.attributes.formats.medium.url}`
-                : `${process.env.NEXT_PUBLIC_STRAPI_URL}${photo.attributes.url}`,
+        documentation: show.attributes.documentation?.map((media) => ({
+            id: media.id,
+            usable: media.usable,
+            credit: media.credit,
+            mime: media.media.data.attributes.mime,
+            alt: media.media.data.attributes.alternativeText,
+            urlLarge: `${process.env.NEXT_PUBLIC_STRAPI_URL}${media.media.data.attributes.url}`,
+            urlSmall: media.media.data.attributes.formats?.medium
+                ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${media.media.data.attributes.formats.medium.url}`
+                : `${process.env.NEXT_PUBLIC_STRAPI_URL}${media.media.data.attributes.url}`,
         })),
     };
 };

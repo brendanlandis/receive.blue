@@ -16,7 +16,7 @@ export default function Shows() {
                     <UpcomingShows />
                 </div>
                 <div className="previous">
-                    <h2>old shows</h2>
+                    <h2>old show flyers</h2>
                     <OldShows />
                 </div>
             </main>
