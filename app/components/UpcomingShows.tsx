@@ -48,7 +48,7 @@ export default function UpcomingShows() {
     const lastShow: Show | null = shows ? formatLastShow(shows) : null;
 
     const MasonryImages =
-        lastShow?.documentationUploads?.map((photo) => ({
+        lastShow?.documentation?.map((photo) => ({
             urlSmall: photo.urlSmall,
             urlLarge: photo.urlLarge,
         })) || [];

@@ -25,7 +25,7 @@ export const GetShowDetails = (show: RawShowData): Show => {
             url: link.url,
             text: link.text,
         })),
-        flyers: show.attributes.flyers.data.map((flyer) => ({
+        flyers: show.attributes.flyers?.data?.map((flyer) => ({
             id: flyer.id,
             alt: flyer.attributes.alternativeText,
             urlLarge: `${process.env.NEXT_PUBLIC_STRAPI_URL}${flyer.attributes.url}`,

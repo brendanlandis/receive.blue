@@ -18,20 +18,24 @@ export default function OldShows() {
         return shows.data.map(GetShowDetails);
     };
 
+    // format the shows
     const formattedShows = shows ? formatShows(shows) : [];
 
-    const sortedShows = formattedShows.sort(
-        (b, a) => new Date(a.date).getTime() - new Date(b.date).getTime()
-    );
-    const currentDate = new Date();
-    const filteredShowsData = sortedShows.filter(
-        (show) => new Date(show.date) <= currentDate
-    );
+    // sort the shows from newest to oldest
+    const sortedShows = formattedShows.sort((b, a) => new Date(a.date).getTime() - new Date(b.date).getTime());
 
-    const MasonryImages = filteredShowsData.reduce(
+    // filter the shows:
+    // - only keep shows that have already happened
+    // - only keep shows that have flyers
+    const currentDate = new Date();
+    const filteredShows = sortedShows
+        .filter((show) => new Date(show.date) <= currentDate)
+        .filter((show) => show.flyers && show.flyers.length > 0);
+
+    const MasonryImages = filteredShows.reduce(
         (images: { urlSmall: string; urlLarge: string }[], show) =>
             images.concat(
-                show.flyers.map((flyer) => ({
+                show.flyers?.map((flyer) => ({
                     urlSmall: flyer.urlSmall,
                     urlLarge: flyer.urlLarge,
                 }))
@@ -51,11 +55,7 @@ export default function OldShows() {
                 render={(item, idx) => (
                     <>
                         <a href={item.urlLarge}>
-                            <img
-                                key={idx}
-                                src={item.urlSmall}
-                                style={{ width: '100%', height: 'auto' }}
-                            />
+                            <img key={idx} src={item.urlSmall} style={{ width: '100%', height: 'auto' }} />
                         </a>
                     </>
                 )}
