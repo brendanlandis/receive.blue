@@ -28,7 +28,6 @@ export default function Home() {
                 </div>
                 <UpcomingShows />
                 <div className="posts">
-                    <h2>big talk</h2>
                     <Posts />
                 </div>
                 <div className="opentabs">

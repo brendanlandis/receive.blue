@@ -31,14 +31,9 @@ export default function Posts() {
             })),
         }));
 
-        formattedPostsData.sort(
-            (a, b) =>
-                new Date(b.realDate).getTime() - new Date(a.realDate).getTime()
-        );
+        formattedPostsData.sort((a, b) => new Date(b.realDate).getTime() - new Date(a.realDate).getTime());
         const currentDate = new Date();
-        const filteredPostsData = formattedPostsData.filter(
-            (post) => new Date(post.realDate) <= currentDate
-        );
+        const filteredPostsData = formattedPostsData.filter((post) => new Date(post.realDate) <= currentDate);
 
         return filteredPostsData;
     };
@@ -50,7 +45,7 @@ export default function Posts() {
             {formattedPosts.map((post: Post) => (
                 <div className="post" key={post.id}>
                     <div className="post-header">
-                        <div className="post-headline">{post.headline}</div>
+                        {post.headline && <h2>{post.headline}</h2>}
                         <div className="post-date">{post.date}</div>
                     </div>
                     <div className="post-text">
