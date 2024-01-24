@@ -1,0 +1,45 @@
+#recordings {
+    display: grid;
+    gap: 2em;
+    padding-bottom: 1em;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        'logo'
+        'image'
+        'text';
+    @media (min-width: $lg) {
+        grid-column-gap: 1em;
+        grid-row-gap: 2em;
+        grid-template-areas:
+            'image'
+            'logo'
+            'text';
+    }
+
+    .text {
+        z-index: 2;
+        text-align: center;
+        p {
+            margin: 0 auto 1em auto;
+            font-size: 1.5em;
+            @media (min-width: $lg) {
+                max-width: 60%;
+            }
+        }
+        img {
+            margin: 0 auto;
+        }
+    }
+    a {
+        text-decoration: underline;
+    }
+    @media (max-width: $xl) {
+        .text {
+            padding: 0 1em;
+        }
+    }
+
+    .text {
+        grid-area: text;
+    }
+}

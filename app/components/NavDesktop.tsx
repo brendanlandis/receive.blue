@@ -18,6 +18,7 @@ export default function NavDesktop() {
             <ul id="primary">
                 <NavDesktopItem url="/" name="home" />
                 <NavDesktopItem url="/shows" name="shows" />
+                <NavDesktopItem url="/recordings" name="recordings" />
                 <li
                     className={
                         pathname == '/else' ? 'nav-item active' : 'nav-item'
@@ -50,11 +51,11 @@ export default function NavDesktop() {
                                 <LiaBandcamp />
                             </Link>
                         </li>
-                        {/* <li className="nav-item">
-                            <Link href="https://spotify.com/">
+                        <li className="nav-item">
+                            <Link href="https://ingrv.es/half-sun-94c-5">
                                 <LiaSpotify />
                             </Link>
-                        </li> */}
+                        </li>
                         <li className="nav-item">
                             <Link href="https://mstdn.social/@slownames">
                                 <LiaMastodon />

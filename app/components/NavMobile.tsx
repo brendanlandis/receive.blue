@@ -81,6 +81,11 @@ export default function NavMobile() {
                                     onClick={closeModal}
                                 />
                                 <NavMobileItem
+                                    url="/recordings"
+                                    name="recordings"
+                                    onClick={closeModal}
+                                />
+                                <NavMobileItem
                                     url="/else"
                                     name="other stuff we're up to"
                                     onClick={closeModal}
@@ -106,11 +111,11 @@ export default function NavMobile() {
                                                 <LiaBandcamp />
                                             </Link>
                                         </li>
-                                        {/* <li className="nav-item">
-                                            <Link href="https://spotify.com/">
+                                        <li className="nav-item">
+                                            <Link href="https://ingrv.es/half-sun-94c-5">
                                                 <LiaSpotify />
                                             </Link>
-                                        </li> */}
+                                        </li>
                                         <li className="nav-item">
                                             <Link href="https://mstdn.social/@slownames">
                                                 <LiaMastodon />
