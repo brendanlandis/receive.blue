@@ -35,7 +35,7 @@ export default function Schedule() {
                             <li key={show.id}>
                                 <span className="date">{show.shortDate} &mdash; </span>
                                 {show.bands.map((band) => (
-                                    <strong>{band.bandname}</strong>
+                                    <strong key='band.id'>{band.bandname}</strong>
                                 ))}{' '}
                                 {show.venue && <>at {show.venue} </>}
                                 {show.city && <>in {show.city} </>}
@@ -48,8 +48,8 @@ export default function Schedule() {
                                             {show.eventLinks.length > 0 && (
                                                 <>
                                                     {show.eventLinks.map((link) => (
-                                                        <span>
-                                                            <a key={link.id} href={link.url}>
+                                                        <span key={link.id}>
+                                                            <a href={link.url}>
                                                                 {link.text}
                                                             </a>
                                                         </span>
@@ -59,8 +59,8 @@ export default function Schedule() {
                                             {show.flyers && (
                                                 <>
                                                     {show.flyers.map((flyer) => (
-                                                        <span>
-                                                            <a href={flyer.urlLarge} key={flyer.id}>
+                                                        <span key={flyer.id}>
+                                                            <a href={flyer.urlLarge}>
                                                                 flyer
                                                             </a>
                                                         </span>
