@@ -13,11 +13,15 @@ export default function Recordings() {
             <main id="recordings">
                 <Header />
                 <div className="text">
-                    <h2>half sun single out 1/30</h2>
+                    <h2>Half Sun single out now</h2>
                     <p>
-                        <Link href="https://ingrv.es/half-sun-94c-5">Pre-save here.</Link>
+                        Check it out on{' '}
+                        <Link href="https://open.spotify.com/album/1TwWgHKNKPOvcEJ9jRQgYt?si=6WxK0yThSc2lbe-mpoPyzQ">
+                            Spotify
+                        </Link>{' '}
+                        or <Link href="https://alreadydeadtapes.bandcamp.com/album/half-sun-single-mix">Bandcamp</Link>.
                     </p>
-                    <Link href="https://ingrv.es/half-sun-94c-5">
+                    <Link href="https://open.spotify.com/album/1TwWgHKNKPOvcEJ9jRQgYt?si=6WxK0yThSc2lbe-mpoPyzQ">
                         <Image src="/halfsun.jpg" height="1000" width="1000" alt="Half Sun single cover art" />
                     </Link>
                 </div>
