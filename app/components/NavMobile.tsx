@@ -112,7 +112,7 @@ export default function NavMobile() {
                                             </Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link href="https://open.spotify.com/album/1TwWgHKNKPOvcEJ9jRQgYt?si=6WxK0yThSc2lbe-mpoPyzQ">
+                                            <Link href="https://open.spotify.com/album/5WAR3l0KMw0cS5uh6F7DpX">
                                                 <LiaSpotify />
                                             </Link>
                                         </li>

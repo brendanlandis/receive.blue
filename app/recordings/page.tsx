@@ -13,16 +13,16 @@ export default function Recordings() {
             <main id="recordings">
                 <Header />
                 <div className="text">
-                    <h2>Half Sun single out now</h2>
+                    <h2>New Abrasions EP is out now</h2>
                     <p>
                         Check it out on{' '}
-                        <Link href="https://open.spotify.com/album/1TwWgHKNKPOvcEJ9jRQgYt?si=6WxK0yThSc2lbe-mpoPyzQ">
+                        <Link href="https://open.spotify.com/album/5WAR3l0KMw0cS5uh6F7DpX">
                             Spotify
                         </Link>{' '}
-                        or <Link href="https://alreadydeadtapes.bandcamp.com/album/half-sun-single-mix">Bandcamp</Link>.
+                        or <Link href="https://alreadydeadtapes.bandcamp.com/album/new-abrasions">Bandcamp</Link>.
                     </p>
-                    <Link href="https://open.spotify.com/album/1TwWgHKNKPOvcEJ9jRQgYt?si=6WxK0yThSc2lbe-mpoPyzQ">
-                        <Image src="/halfsun.jpg" height="1000" width="1000" alt="Half Sun single cover art" />
+                    <Link href="https://open.spotify.com/album/5WAR3l0KMw0cS5uh6F7DpX">
+                        <Image src="/newabrasions.jpg" height="1000" width="1000" alt="Half Sun single cover art" />
                     </Link>
                 </div>
             </main>

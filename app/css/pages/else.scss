@@ -16,15 +16,11 @@
             'text';
     }
 
-    .text {
+    .logos {
         z-index: 2;
         text-align: center;
-        p {
-            margin: 0 auto 1em auto;
-            font-size: 1.5em;
-            @media (min-width: $lg) {
-                max-width: 60%;
-            }
+        img {
+            margin: 0 auto 3em auto;
         }
     }
     a {
