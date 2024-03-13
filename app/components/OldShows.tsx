@@ -28,6 +28,7 @@ export default function OldShows() {
     // - only keep shows that have already happened
     // - only keep shows that have flyers
     const currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() - 1);
     const filteredShows = sortedShows
         .filter((show) => new Date(show.date) <= currentDate)
         .filter((show) => show.flyers && show.flyers.length > 0);
