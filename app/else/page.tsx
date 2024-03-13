@@ -26,7 +26,6 @@ export default function Else() {
                     <Link href="https://heyexit.com/">
                         <Image src="https://api.slownames.net/uploads/hey_exit_white_on_transparent_8049236590.png" height="500" width="500" alt="Half Sun single cover art" />
                     </Link>
-                    
                 </div>
             </main>
         </>

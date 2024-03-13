@@ -23,7 +23,9 @@ export default function UpcomingShows() {
     const formatUpcomingShows = (shows: { data: RawShowData[] }): Show[] => {
         formattedShows.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
         const currentDate = new Date();
+        currentDate.setDate(currentDate.getDate() - 1);
         const filteredShowsData = formattedShows.filter((show) => new Date(show.date) >= currentDate);
+        console.log(filteredShowsData);
         return filteredShowsData;
     };
 

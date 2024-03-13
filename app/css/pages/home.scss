@@ -68,7 +68,7 @@
             text-align: center;
         }
         @media (min-width: $lg) {
-            align-self: center;
+            align-self: flex-start;
             p,
             ul {
                 max-width: 300px;
