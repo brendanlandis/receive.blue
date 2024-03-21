@@ -4,12 +4,7 @@ import { usePathname } from 'next/navigation';
 // @ts-ignore
 import Obfuscate from 'react-obfuscate';
 import Link from 'next/link';
-import {
-    LiaInstagram,
-    LiaBandcamp,
-    LiaSpotify,
-    LiaMastodon,
-} from 'react-icons/lia';
+import { LiaInstagram, LiaBandcamp, LiaSpotify, LiaMastodon, LiaPatreon } from 'react-icons/lia';
 
 export default function NavDesktop() {
     const pathname = usePathname();
@@ -19,11 +14,7 @@ export default function NavDesktop() {
                 <NavDesktopItem url="/" name="home" />
                 <NavDesktopItem url="/shows" name="shows" />
                 <NavDesktopItem url="/recordings" name="recordings" />
-                <li
-                    className={
-                        pathname == '/else' ? 'nav-item active' : 'nav-item'
-                    }
-                >
+                <li className={pathname == '/else' ? 'nav-item active' : 'nav-item'}>
                     <Link href="/else">
                         other stuff <br />
                         we're up to
@@ -49,6 +40,11 @@ export default function NavDesktop() {
                         <li className="nav-item">
                             <Link href="https://slownames.bandcamp.com/">
                                 <LiaBandcamp />
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link href="https://www.patreon.com/user?u=18475116">
+                                <LiaPatreon />
                             </Link>
                         </li>
                         <li className="nav-item">

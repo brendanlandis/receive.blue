@@ -6,12 +6,7 @@ import NavMobileItem from './NavMobileItem';
 // @ts-ignore
 import Obfuscate from 'react-obfuscate';
 import Link from 'next/link';
-import {
-    LiaInstagram,
-    LiaBandcamp,
-    LiaSpotify,
-    LiaMastodon,
-} from 'react-icons/lia';
+import { LiaInstagram, LiaBandcamp, LiaSpotify, LiaMastodon, LiaPatreon } from 'react-icons/lia';
 
 export default function NavMobile() {
     let [isOpen, setIsOpen] = useState(false);
@@ -27,11 +22,7 @@ export default function NavMobile() {
         <>
             <div id="mobile-menu-open">
                 <button type="button" onClick={openModal}>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                    >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                         <path
                             fillRule="evenodd"
                             d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
@@ -69,27 +60,11 @@ export default function NavMobile() {
                                     </svg>
                                 </button>
                             </div>
-                            <ul className='mobile-menu-list'>
-                                <NavMobileItem
-                                    url="/"
-                                    name="home"
-                                    onClick={closeModal}
-                                />
-                                <NavMobileItem
-                                    url="/shows"
-                                    name="shows"
-                                    onClick={closeModal}
-                                />
-                                <NavMobileItem
-                                    url="/recordings"
-                                    name="recordings"
-                                    onClick={closeModal}
-                                />
-                                <NavMobileItem
-                                    url="/else"
-                                    name="other stuff we're up to"
-                                    onClick={closeModal}
-                                />
+                            <ul className="mobile-menu-list">
+                                <NavMobileItem url="/" name="home" onClick={closeModal} />
+                                <NavMobileItem url="/shows" name="shows" onClick={closeModal} />
+                                <NavMobileItem url="/recordings" name="recordings" onClick={closeModal} />
+                                <NavMobileItem url="/else" name="other stuff we're up to" onClick={closeModal} />
                                 <li className="nav-item nav-item-contact">
                                     <span>contact:</span>
                                     <Obfuscate email="b@slownames.net" />
@@ -109,6 +84,11 @@ export default function NavMobile() {
                                         <li className="nav-item">
                                             <Link href="https://slownames.bandcamp.com/">
                                                 <LiaBandcamp />
+                                            </Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link href="https://www.patreon.com/user?u=18475116">
+                                                <LiaPatreon />
                                             </Link>
                                         </li>
                                         <li className="nav-item">
