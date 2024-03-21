@@ -21,11 +21,16 @@ export default function UpcomingShows() {
     const formattedShows = shows ? formatShows(shows) : [];
 
     const formatUpcomingShows = (shows: { data: RawShowData[] }): Show[] => {
+        // sort shows by date
         formattedShows.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+
+        // filter out shows that have already happened
+        // and shows that are cancelled
         const currentDate = new Date();
         currentDate.setDate(currentDate.getDate() - 1);
-        const filteredShowsData = formattedShows.filter((show) => new Date(show.date) >= currentDate);
-        console.log(filteredShowsData);
+        const filteredShowsData = formattedShows
+            .filter((show) => new Date(show.date) >= currentDate)
+            .filter((show) => show.cancelled === false);
         return filteredShowsData;
     };
 

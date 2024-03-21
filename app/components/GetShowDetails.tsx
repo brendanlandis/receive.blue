@@ -14,6 +14,7 @@ export const GetShowDetails = (show: RawShowData): Show => {
         shortMonth: format(parseISO(show.attributes.date), 'MMM'),
         shortDay: format(parseISO(show.attributes.date), 'do'),
         shortDate: format(parseISO(show.attributes.date), 'M/d'),
+        cancelled: show.attributes.cancelled,
         doors: show.attributes.doors,
         sound: show.attributes.sound,
         venue: show.attributes.venue,

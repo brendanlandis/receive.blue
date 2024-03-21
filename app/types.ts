@@ -2,6 +2,7 @@ export interface RawShowData {
     id: number;
     attributes: {
         date: string;
+        cancelled: boolean;
         myBand: Array<{
             id: number;
             displayBandname: string;
@@ -73,6 +74,7 @@ export interface Show {
     shortMonth: string;
     shortDay: string;
     shortDate: string;
+    cancelled: boolean;
     doors: string;
     sound: string;
     venue: string;

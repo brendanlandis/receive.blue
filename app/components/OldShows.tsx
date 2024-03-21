@@ -24,14 +24,15 @@ export default function OldShows() {
     // sort the shows from newest to oldest
     const sortedShows = formattedShows.sort((b, a) => new Date(a.date).getTime() - new Date(b.date).getTime());
 
-    // filter the shows:
-    // - only keep shows that have already happened
-    // - only keep shows that have flyers
+    // filter out shows that haven't happened yet
+    // or that have no flyers
+    // or that were cancelled
     const currentDate = new Date();
     currentDate.setDate(currentDate.getDate() - 1);
     const filteredShows = sortedShows
         .filter((show) => new Date(show.date) <= currentDate)
-        .filter((show) => show.flyers && show.flyers.length > 0);
+        .filter((show) => show.flyers && show.flyers.length > 0)
+        .filter((show) => show.cancelled === false);
 
     const MasonryImages = filteredShows.reduce(
         (images: { urlSmall: string; urlLarge: string }[], show) =>
