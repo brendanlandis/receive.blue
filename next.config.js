@@ -15,6 +15,16 @@ const nextConfig = {
     sassOptions: {
         includePaths: [path.join(__dirname, 'css')],
     },
+    redirects: async () => {
+        return [
+            {
+                source: '/:path*',
+                has: [{ type: 'header', key: 'host', value: 'www.receive.blue' }],
+                destination: 'https://receive.blue/:path*',
+                permanent: true,
+            },
+        ];
+    },
 };
 
 module.exports = nextConfig;
