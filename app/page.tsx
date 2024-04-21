@@ -9,15 +9,13 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-
     return (
         <>
             <main id="home">
                 <Header />
                 <div className="about">
                     <p>
-                        <span className="bandname">Receive</span> is an art rock
-                        band from Ridgewood NY.
+                        <span className="bandname">Receive</span> is a heavy art rock band from Ridgewood NY.
                     </p>
                     <ul>
                         <li>Brendan: vox, gtr</li>
