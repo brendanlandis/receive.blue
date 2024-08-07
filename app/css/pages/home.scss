@@ -1,229 +1,258 @@
 #home {
-    display: grid;
-    gap: 2em;
-    padding-bottom: 1em;
-    grid-template-columns: 1fr;
+  display: grid;
+  gap: 1em;
+  padding-bottom: 1em;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "logo"
+    "image"
+    "links"
+    "about";
+    // "shows"
+    // "posts"
+    // "tabs";
+  @media (min-width: $md) {
+    grid-template-columns: 2fr 1fr;
     grid-template-areas:
-        'logo'
-        'image'
-        'about'
-        'shows'
-        'posts'
-        'tabs';
-    @media (min-width: $md) {
-        grid-template-columns: 2fr 1fr;
-        grid-template-areas:
-            'logo logo'
-            'image image'
-            'about about'
-            'shows shows'
-            'posts tabs';
-    }
-    @media (min-width: $lg) {
-        grid-column-gap: 1em;
-        grid-row-gap: 2em;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        grid-template-areas:
-            'image image image image image'
-            'logo logo logo logo logo'
-            'about about shows shows shows'
-            'posts posts shows shows shows'
-            'tabs tabs shows shows shows';
-    }
+      "logo logo"
+      "image image"
+      "links links"
+      "about about";
+      // "shows shows"
+      // "posts tabs";
+  }
+  // @media (min-width: $lg) {
+  //   grid-column-gap: 1em;
+  //   grid-row-gap: 2em;
+  //   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  //   grid-template-areas:
+  //     "image image image image image"
+  //     "logo logo logo logo logo"
+  //     "about about shows shows shows"
+  //     "posts posts shows shows shows"
+  //     "tabs tabs shows shows shows";
+  // }
 
+  .about,
+  .links,
+  .shows,
+  .posts,
+  .opentabs {
+    z-index: 2;
+  }
+  @media (max-width: $lg) {
     .about,
-    .shows,
+    .posts,
+    .opentabs,
+    .shows {
+      padding: 0 1em;
+    }
+  }
+  @media (min-width: $lg) and (max-width: $xl) {
+    .about,
     .posts,
     .opentabs {
-        z-index: 2;
+      padding: 0 0 0 1em;
     }
-    @media (max-width: $lg) {
-        .about,
-        .posts,
-        .opentabs,
-        .shows {
-            padding: 0 1em;
-        }
-    }
-    @media (min-width: $lg) and (max-width: $xl) {
-        .about,
-        .posts,
-        .opentabs {
-            padding: 0 0 0 1em;
-        }
-        .shows {
-            padding: 0 1em 0 0;
-        }
-    }
-
-    .about {
-        grid-area: about;
-        text-align: center;
-        .bandname {
-            @include bigtext;
-            @include moregradienttext;
-        }
-        ul {
-            margin-top: 1em;
-            text-align: center;
-        }
-        @media (min-width: $lg) {
-            align-self: flex-start;
-            p,
-            ul {
-                max-width: 300px;
-                margin: 0 auto;
-            }
-            ul {
-                margin-top: 1em;
-            }
-        }
-    }
-
     .shows {
-        grid-area: shows;
-        .toptext {
-            margin-bottom: 1em;
+      padding: 0 1em 0 0;
+    }
+  }
+  .links {
+    grid-area: links;
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    #nav-desktop-socials {
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+      svg {
+        height: 4em;
+        width: 4em;
+        fill: #fff;
+      }
+    }
+  }
+  .about {
+    grid-area: about;
+    text-align: left;
+    .top {
+      text-align: center;
+    }
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1em;
+    .bandname {
+      @include bigtext;
+      @include moregradienttext;
+    }
+    .datetime {
+      font-style: italic;
+      margin: 0 auto;
+      letter-spacing: 0.3em;
+    }
+    img {
+      margin: 1em auto;
+    }
+    ul {
+      margin-top: 1em;
+      text-align: center;
+    }
+    @media (min-width: $lg) {
+      align-self: flex-start;
+      p,
+      ul {
+        max-width: 800px;
+        margin: 0 auto 2em auto;
+      }
+      ul {
+        margin-top: 1em;
+      }
+    }
+  }
+
+  .shows {
+    grid-area: shows;
+    .toptext {
+      margin-bottom: 1em;
+    }
+    .show {
+      display: grid;
+      grid-template-columns: 1fr;
+      div {
+        display: inline;
+      }
+      & + .show {
+        margin-top: 2em;
+        padding-top: 1.5em;
+        border-top: 1px solid #666;
+      }
+      grid-template-columns: 1fr;
+      grid-template-areas: "details" "flyer";
+      gap: 1em;
+      align-items: center;
+      .show-flyer {
+        grid-area: flyer;
+        display: grid;
+        gap: 1em;
+        img {
+          min-width: 100%;
         }
-        .show {
+      }
+      .show-details {
+        grid-area: details;
+        display: flex;
+        gap: 1em;
+        justify-items: start;
+        align-items: center;
+        .show-when {
+          text-align: center;
+          text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5),
+            1px -1px 0 rgba(0, 0, 0, 0.5), -1px 1px 0 rgba(0, 0, 0, 0.5),
+            1px 1px 0 rgba(0, 0, 0, 0.5);
+          border: 0.1em solid rgba(0, 0, 0, 0.5);
+          background-image: linear-gradient(
+            45deg,
+            hsl(285deg 96% 38%) 0%,
+            hsl(291deg 100% 32%) 24%,
+            hsl(296deg 100% 27%) 35%,
+            hsl(302deg 100% 24%) 45%,
+            hsl(307deg 100% 22%) 55%,
+            hsl(311deg 100% 19%) 65%,
+            hsl(315deg 100% 17%) 76%,
+            hsl(319deg 95% 14%) 100%
+          );
+          color: #fff;
+          border-radius: 0.5em;
+          display: inline-block;
+          width: auto;
+          padding: 1em;
+          aspect-ratio: 1 / 1;
+          .show-when-wrapper {
             display: grid;
+            align-content: center;
             grid-template-columns: 1fr;
-            div {
-                display: inline;
-            }
-            & + .show {
-                margin-top: 2em;
-                padding-top: 1.5em;
-                border-top: 1px solid #666;
-            }
-            grid-template-columns: 1fr;
-            grid-template-areas: 'details' 'flyer';
-            gap: 1em;
-            align-items: center;
-            .show-flyer {
-                grid-area: flyer;
-                display: grid;
-                gap: 1em;
-                img {
-                    min-width: 100%;
-                }
-            }
-            .show-details {
-                grid-area: details;
-                display: flex;
-                gap: 1em;
-                justify-items: start;
-                align-items: center;
-                .show-when {
-                    text-align: center;
-                    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5),
-                        1px -1px 0 rgba(0, 0, 0, 0.5),
-                        -1px 1px 0 rgba(0, 0, 0, 0.5),
-                        1px 1px 0 rgba(0, 0, 0, 0.5);
-                    border: 0.1em solid rgba(0, 0, 0, 0.5);
-                    background-image: linear-gradient(
-                        45deg,
-                        hsl(285deg 96% 38%) 0%,
-                        hsl(291deg 100% 32%) 24%,
-                        hsl(296deg 100% 27%) 35%,
-                        hsl(302deg 100% 24%) 45%,
-                        hsl(307deg 100% 22%) 55%,
-                        hsl(311deg 100% 19%) 65%,
-                        hsl(315deg 100% 17%) 76%,
-                        hsl(319deg 95% 14%) 100%
-                    );
-                    color: #fff;
-                    border-radius: 0.5em;
-                    display: inline-block;
-                    width: auto;
-                    padding: 1em;
-                    aspect-ratio: 1 / 1;
-                    .show-when-wrapper {
-                        display: grid;
-                        align-content: center;
-                        grid-template-columns: 1fr;
-                    }
-                    .show-month {
-                        font-weight: 400;
-                        text-transform: lowercase;
-                        font-size: 1.5em;
-                        line-height: 1em;
-                    }
-                    .date-day {
-                        font-size: 1.2em;
-                    }
-                }
-                .show-where {
-                    font-size: 1.1em;
-                    .show-venue {
-                        font-weight: bold;
-                        font-size: 1.2em;
-                        text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5),
-                            1px -1px 0 rgba(0, 0, 0, 0.5),
-                            -1px 1px 0 rgba(0, 0, 0, 0.5),
-                            1px 1px 0 rgba(0, 0, 0, 0.5);
-                    }
-                }
-                .show-links,
-                .show-notes {
-                    display: block;
-                }
-                a {
-                    text-decoration: underline;
-                }
-            }
+          }
+          .show-month {
+            font-weight: 400;
+            text-transform: lowercase;
+            font-size: 1.5em;
+            line-height: 1em;
+          }
+          .date-day {
+            font-size: 1.2em;
+          }
         }
+        .show-where {
+          font-size: 1.1em;
+          .show-venue {
+            font-weight: bold;
+            font-size: 1.2em;
+            text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5),
+              1px -1px 0 rgba(0, 0, 0, 0.5), -1px 1px 0 rgba(0, 0, 0, 0.5),
+              1px 1px 0 rgba(0, 0, 0, 0.5);
+          }
+        }
+        .show-links,
+        .show-notes {
+          display: block;
+        }
+        a {
+          text-decoration: underline;
+        }
+      }
     }
+  }
 
-    .posts {
-        grid-area: posts;
-        .post {
-            & + .post {
-                margin-top: 2em;
-                padding-top: 1.5em;
-                border-top: 1px solid #666;
-            }
-            .post-header {
-                margin-bottom: 1em;
-                .post-headline {
-                    @include bigtext;
-                }
-                .post-date {
-                    @include smalltext;
-                }
-            }
-            .post-text {
-                margin-bottom: 1em;
-                p {
-                    margin-bottom: 0.5em;
-                }
-                a {
-                    text-decoration: underline;
-                }
-            }
-            .post-links {
-                a {
-                    text-decoration: underline;
-                    display: block;
-                }
-            }
+  .posts {
+    grid-area: posts;
+    .post {
+      & + .post {
+        margin-top: 2em;
+        padding-top: 1.5em;
+        border-top: 1px solid #666;
+      }
+      .post-header {
+        margin-bottom: 1em;
+        .post-headline {
+          @include bigtext;
         }
+        .post-date {
+          @include smalltext;
+        }
+      }
+      .post-text {
+        margin-bottom: 1em;
+        p {
+          margin-bottom: 0.5em;
+        }
+        a {
+          text-decoration: underline;
+        }
+      }
+      .post-links {
+        a {
+          text-decoration: underline;
+          display: block;
+        }
+      }
     }
+  }
 
-    .opentabs {
-        grid-area: tabs;
-        .opentab {
-            & + .opentab {
-                margin-top: 0.5em;
-                padding-top: 0.5em;
-                border-top: 1px solid #666;
-            }
-            a {
-                text-decoration: underline;
-            }
-            .tab-description {
-                font-size: 0.8em;
-            }
-        }
+  .opentabs {
+    grid-area: tabs;
+    .opentab {
+      & + .opentab {
+        margin-top: 0.5em;
+        padding-top: 0.5em;
+        border-top: 1px solid #666;
+      }
+      a {
+        text-decoration: underline;
+      }
+      .tab-description {
+        font-size: 0.8em;
+      }
     }
+  }
 }

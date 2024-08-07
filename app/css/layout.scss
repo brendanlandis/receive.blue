@@ -9,84 +9,84 @@ header {
 
 // main
 body {
-    min-height: 100vh;
-    background-color: #000;
-    background-image: linear-gradient(45deg, #000000, #7a3f58);
-    color: #fff2f7;
-    #background-wrapper {
-        overflow: hidden;
-    }
+  min-height: 100vh;
+  background-color: #000;
+  background-image: linear-gradient(45deg, #000000, #7a3f58);
+  color: #fff2f7;
+  #background-wrapper {
+    overflow: hidden;
+  }
 }
 
 nav {
-    color: #fff2f7;
+  color: #fff2f7;
 }
 
 main {
-    @apply mx-auto;
-    max-width: $xl;
-    display: grid;
-    grid-template-columns: 1fr;
-    align-content: start;
-    text-align: left;
-    justify-content: center;
-    margin: 0 auto;
-    min-height: 100vh;
+  @apply mx-auto;
+  max-width: $xl;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content: start;
+  text-align: left;
+  justify-content: center;
+  margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+
+  .logo {
+    grid-area: logo;
+    opacity: 1;
+    padding-top: 15%;
+    margin-bottom: -80%;
     position: relative;
+    z-index: 2;
+    overflow: hidden;
+    img {
+      transform: scale(1.5);
+      mix-blend-mode: color-dodge;
+      opacity: 0.5;
+    }
+    @media (max-width: $md) {
+      background: url("/header-mobile.jpg") center center no-repeat;
+      background-size: cover;
+      img {
+        padding-top: -14%;
+      }
+    }
+    @media (min-width: $md) {
+      opacity: 0.2;
+      background: none;
+    }
+    @media (min-width: $lg) {
+      padding-top: 0;
+      margin-bottom: -50%;
+      overflow: visible;
+    }
+  }
 
-    .logo {
-        grid-area: logo;
+  .image {
+    grid-area: image;
+    margin-top: -1em;
+    @media (min-width: $md) {
+      margin-top: -2em;
+    }
+    @media (min-width: $lg) {
+      margin-top: 0;
+    }
+    .header-desktop {
+      display: none;
+      @media (min-width: $md) {
+        display: block;
+      }
+    }
+    .header-mobile {
+      display: block;
+      opacity: 0;
+      @media (min-width: $md) {
+        display: none;
         opacity: 1;
-        padding-top: 15%;
-        margin-bottom: -80%;
-        position: relative;
-        z-index: 2;
-        overflow: hidden;
-        img {
-            transform: scale(1.5);
-            mix-blend-mode: color-dodge;
-            opacity: 0.5;
-        }
-        @media (max-width: $md) {
-            background: url('/header-mobile.jpg') center center no-repeat;
-            background-size: cover;
-            img {
-                padding-top: -14%;
-            }
-        }
-        @media (min-width: $md) {
-            opacity: 0.2;
-            background: none;
-        }
-        @media (min-width: $lg) {
-            padding-top: 0;
-            margin-bottom: -50%;
-            overflow: visible;
-        }
+      }
     }
-
-    .image {
-        grid-area: image;
-        margin-top: -1em;
-        @media (min-width: $md) {
-            margin-top: -2em;
-        }
-        @media (min-width: $lg) {
-            margin-top: 0;
-        }
-        .header-desktop {
-            display: none;
-            @media (min-width: $md) {
-                display: block;
-            }
-        }
-        .header-mobile {
-            display: block;
-            opacity: 0;
-            @media (min-width: $md) {
-                display: none;
-                opacity: 1;
-            }
-        }
-    }
+  }
 }

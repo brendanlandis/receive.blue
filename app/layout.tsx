@@ -37,10 +37,10 @@ export default function RootLayout({
       </head>
       <body>
         <div id="background-wrapper">
-          <header>
+          {/* <header>
             <NavDesktop />
             <NavMobile />
-          </header>
+          </header> */}
           {children}
         </div>
       </body>
