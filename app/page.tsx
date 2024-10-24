@@ -1,7 +1,5 @@
 import { Metadata } from "next";
-// import UpcomingShows from "./components/UpcomingShows";
-// import Posts from "./components/Posts";
-// import Tabs from "./components/Tabs";
+import Posts from "./components/Posts";
 import Header from "./components/Header";
 import Image from "next/image";
 import {
@@ -44,6 +42,11 @@ export default function Home() {
                 <LiaSpotify />
               </Link>
             </li>
+            <li className="nav-item">
+              <Link href="https://mstdn.social/@slownames">
+                <LiaMastodon />
+              </Link>
+            </li>
           </ul>
         </div>
         <div className="about">
@@ -51,27 +54,9 @@ export default function Home() {
             <span className="bandname">Receive</span> is a heavy art rock band
             from Ridgewood NY.
           </p>
-          <p className="datetime">August 12th 2024</p>
-          <p>
-            Usually this site functions as an archive of live & recorded
-            activity, but we're moving the backend around right now, and expect
-            this site to be stripped down for a month or so.
-          </p>
-          <p>Meanwhile, come see us on August 30th at Bar Freda:</p>
-          <Image
-            src="/flyer-240830.jpg"
-            height="626"
-            width="500"
-            alt="flyer for show on August 30th 2024"
-          />
-        </div>
-        {/* <UpcomingShows /> */}
-        {/* <div className="posts">
           <Posts />
-        </div> */}
-        {/* <div className="opentabs">
-          <h2>open tabs</h2>
-          <Tabs />
+        </div>
+        {/* <div className="posts">
         </div> */}
       </main>
     </>

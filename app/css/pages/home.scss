@@ -67,6 +67,7 @@
       display: flex;
       justify-content: center;
       gap: 2em;
+      flex-wrap: wrap;
       svg {
         height: 4em;
         width: 4em;
@@ -77,36 +78,65 @@
   .about {
     grid-area: about;
     text-align: left;
-    .top {
-      text-align: center;
-    }
     background: rgba(0, 0, 0, 0.7);
     padding: 1em;
-    .bandname {
-      @include bigtext;
-      @include moregradienttext;
-    }
-    .datetime {
-      font-style: italic;
-      margin: 0 auto;
-      letter-spacing: 0.3em;
-    }
-    img {
-      margin: 1em auto;
-    }
-    ul {
-      margin-top: 1em;
+    .top {
       text-align: center;
-    }
-    @media (min-width: $lg) {
-      align-self: flex-start;
-      p,
-      ul {
-        max-width: 800px;
-        margin: 0 auto 2em auto;
+      .bandname {
+        @include bigtext;
+        @include moregradienttext;
       }
-      ul {
-        margin-top: 1em;
+    }
+    .posts {
+      grid-area: posts;
+      margin-top: 2em;
+      max-width: 100vw;
+      .post {
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        & + .post {
+          margin-top: 2em;
+          padding-top: 1.5em;
+          border-top: 1px solid #666;
+        }
+        h2 {
+          margin-bottom: 0;
+        }
+        .post-header {
+          margin-bottom: 1em;
+          .post-headline {
+            @include bigtext;
+          }
+        }
+        .post-date {
+          font-style: italic;
+          margin: 0 auto;
+          font-size: 1.5em;
+        }
+        .post-text {
+          margin-bottom: 1em;
+          p {
+            margin-bottom: 1em;
+          }
+          a {
+            text-decoration: underline;
+          }
+        }
+        img {
+          margin: 1em auto;
+          width: 100%;
+        }
+        ul {
+          margin-top: 1em;
+          text-align: center;
+        }
+        @media (min-width: $lg) {
+          align-self: flex-start;
+          ul {
+            margin-top: 1em;
+          }
+        }
       }
     }
   }
@@ -199,41 +229,6 @@
         }
         a {
           text-decoration: underline;
-        }
-      }
-    }
-  }
-
-  .posts {
-    grid-area: posts;
-    .post {
-      & + .post {
-        margin-top: 2em;
-        padding-top: 1.5em;
-        border-top: 1px solid #666;
-      }
-      .post-header {
-        margin-bottom: 1em;
-        .post-headline {
-          @include bigtext;
-        }
-        .post-date {
-          @include smalltext;
-        }
-      }
-      .post-text {
-        margin-bottom: 1em;
-        p {
-          margin-bottom: 0.5em;
-        }
-        a {
-          text-decoration: underline;
-        }
-      }
-      .post-links {
-        a {
-          text-decoration: underline;
-          display: block;
         }
       }
     }

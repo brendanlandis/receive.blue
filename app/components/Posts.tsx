@@ -1,15 +1,16 @@
 "use client";
 import useAxios from "axios-hooks";
+import {
+  BlocksRenderer,
+  type BlocksContent,
+} from "@strapi/blocks-react-renderer";
 import { Post, RawPostData } from "@/app/types";
 import { format } from "date-fns/format";
 import { parseISO } from "date-fns/parseISO";
-import Markdown from "react-markdown";
-
-// TODO if the post is about two of our bands, the one that isn't Receive should be added to the otherBands field
 
 export default function Posts() {
   const [{ data: posts, loading, error }, refetch] = useAxios(
-    "https://api.slownames.net/api/posts?populate=deep&filters[bands][id]=32"
+    "https://slownames.net/api/posts?populate=*&filters[band][name]=Receive&pagination[page]=1&pagination[pageSize]=5&sort=id:desc"
   );
 
   if (loading) return <p>loading</p>;
@@ -18,17 +19,10 @@ export default function Posts() {
   const formatPosts = (posts: { data: RawPostData[] }): Post[] => {
     const formattedPostsData: Post[] = posts.data.map((post) => ({
       id: post.id,
-      realDate: post.attributes.date,
-      date: format(parseISO(post.attributes.date), "MMMM do, GGGG yyyy"),
-      headline: post.attributes.headline,
-      text: post.attributes.text,
-      attachments: post.attributes.attachments.map((attachment) => ({
-        id: attachment.id,
-        text: attachment.linkText,
-        url: attachment.file.data
-          ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${attachment.file.data.attributes.url}`
-          : "",
-      })),
+      realDate: post.date,
+      date: format(parseISO(post.date), "MMMM do, GGGG yyyy"),
+      headline: post.headline,
+      text: post.text,
     }));
 
     formattedPostsData.sort(
@@ -45,7 +39,7 @@ export default function Posts() {
   const formattedPosts = posts ? formatPosts(posts) : [];
 
   return (
-    <>
+    <div className="posts">
       {formattedPosts.map((post: Post) => (
         <div className="post" key={post.id}>
           <div className="post-header">
@@ -53,17 +47,10 @@ export default function Posts() {
             <div className="post-date">{post.date}</div>
           </div>
           <div className="post-text">
-            <Markdown>{post.text}</Markdown>
-          </div>
-          <div className="post-links">
-            {post.attachments.map((attachment) => (
-              <a href={attachment.url} key={attachment.id}>
-                {attachment.text}
-              </a>
-            ))}
+            <BlocksRenderer content={post.text} />
           </div>
         </div>
       ))}
-    </>
+    </div>
   );
 }
