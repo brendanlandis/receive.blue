@@ -23,27 +23,42 @@ export default function Home() {
         <div className="links">
           <ul id="nav-desktop-socials">
             <li className="nav-item">
-              <Link href="https://www.instagram.com/rreecceeiivvee/">
+              <Link
+                href="https://www.instagram.com/rreecceeiivvee/"
+                title="Receive on Instagram"
+              >
                 <LiaInstagram />
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="https://slownames.bandcamp.com/">
+              <Link
+                href="https://slownames.bandcamp.com/"
+                title="Receive on Bandcamp"
+              >
                 <LiaBandcamp />
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="https://www.patreon.com/user?u=18475116">
+              <Link
+                href="https://www.patreon.com/user?u=18475116"
+                title="Brendan and Calley on Patreon"
+              >
                 <LiaPatreon />
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="https://open.spotify.com/album/5WAR3l0KMw0cS5uh6F7DpX">
+              <Link
+                href="https://open.spotify.com/album/5WAR3l0KMw0cS5uh6F7DpX"
+                title="Receive on Spotify"
+              >
                 <LiaSpotify />
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="https://mstdn.social/@slownames">
+              <Link
+                href="https://mstdn.social/@slownames"
+                title="Brendan on Mastodon"
+              >
                 <LiaMastodon />
               </Link>
             </li>
