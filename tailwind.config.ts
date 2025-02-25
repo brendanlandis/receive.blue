@@ -10,8 +10,8 @@ const config: Config = {
     require('@tailwindcss/typography'),
     require('daisyui'),
   ],
-  daisyui: {
-    themes: ['lofi'],
-  },
+  // daisyui: {
+  //   themes: ['lofi'],
+  // },
 }
 export default config
