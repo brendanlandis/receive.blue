@@ -8,20 +8,20 @@
     "image"
     "links"
     "about";
-    // "shows"
-    // "posts"
-    // "tabs";
-  @media (min-width: $md) {
+  // "shows"
+  // "posts"
+  // "tabs";
+  @media (min-width: 768px) {
     grid-template-columns: 2fr 1fr;
     grid-template-areas:
       "logo logo"
       "image image"
       "links links"
       "about about";
-      // "shows shows"
-      // "posts tabs";
+    // "shows shows"
+    // "posts tabs";
   }
-  // @media (min-width: $lg) {
+  // @media (min-width: 1024px) {
   //   grid-column-gap: 1em;
   //   grid-row-gap: 2em;
   //   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -40,7 +40,7 @@
   .opentabs {
     z-index: 2;
   }
-  @media (max-width: $lg) {
+  @media (max-width: 1024px) {
     .about,
     .posts,
     .opentabs,
@@ -48,7 +48,7 @@
       padding: 0 1em;
     }
   }
-  @media (min-width: $lg) and (max-width: $xl) {
+  @media (min-width: 1024px) and (max-width: 1280px) {
     .about,
     .posts,
     .opentabs {
@@ -83,8 +83,13 @@
     .top {
       text-align: center;
       .bandname {
-        @include bigtext;
-        @include moregradienttext;
+        font-size: 1.8em;
+        line-height: 1em;
+        text-transform: uppercase;
+        font-style: italic;
+        background: -webkit-linear-gradient(215deg, #ff8ddb, #fff 80%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
     }
     .posts {
@@ -106,7 +111,10 @@
         .post-header {
           margin-bottom: 1em;
           .post-headline {
-            @include bigtext;
+            font-size: 1.8em;
+            line-height: 1em;
+            text-transform: uppercase;
+            font-style: italic;
           }
         }
         .post-date {
@@ -131,7 +139,7 @@
           margin-top: 1em;
           text-align: center;
         }
-        @media (min-width: $lg) {
+        @media (min-width: 1024px) {
           align-self: flex-start;
           ul {
             margin-top: 1em;

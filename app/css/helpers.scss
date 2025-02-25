@@ -2,7 +2,7 @@
 @for $i from 1 through 10 {
     $start: $i;
     .grid-col-#{$i} {
-        @media (min-width: $lg) {
+        @media (min-width: 1024px) {
             grid-template-columns: repeat($start, 1fr) !important;
         }
     }

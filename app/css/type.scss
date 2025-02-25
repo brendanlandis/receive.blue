@@ -1,26 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,400;0,900;1,200;1,400;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,400;0,900;1,200;1,400;1,900&display=swap");
 
-$font-header: 'Source Code Pro', sans-serif;
-$font-mono: 'Source Code Pro', sans-serif;
+$font-header: "Source Code Pro", sans-serif;
+$font-mono: "Source Code Pro", sans-serif;
 $font-body: serif;
 
 header {
-    font-family: $font-header;
-    text-transform: uppercase;
-    font-weight: 400;
-    nav {
-        font-weight: 100 !important;
-    }
+  font-family: $font-header;
+  text-transform: uppercase;
+  font-weight: 400;
+  nav {
+    font-weight: 100 !important;
+  }
 }
 
 #mobile-menu,
 #nav-desktop {
-    font-family: $font-header;
+  font-family: $font-header;
 }
 
 main {
-    font-family: $font-mono;
-    font-size: 1em;
+  font-family: $font-mono;
+  font-size: 1em;
 }
 
 h1,
@@ -29,31 +29,32 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: $font-header;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-style: italic;
+  font-family: $font-header;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-style: italic;
 }
 
 h1 {
-    font-size: 3em;
+  font-size: 3em;
 }
 
 h2 {
-    font-size: 3em;
-    @include outlinedtext;
-    line-height: 1em;
-    margin-bottom: 0.5em;
-    margin-top: 2em;
-    @media (min-width: $lg) {
-        margin-top: 0;
-    }
-    #shows .upcoming & {
-        margin-top: 0;
-    }
-    #else .logos & {
-        margin-top: 0;
-        margin-bottom: 2em;
-    }
+  font-size: 3em;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 1), 1px -1px 0 rgba(0, 0, 0, 1),
+    -1px 1px 0 rgba(0, 0, 0, 1), 1px 1px 0 rgba(0, 0, 0, 1);
+  line-height: 1em;
+  margin-bottom: 0.5em;
+  margin-top: 2em;
+  @media (min-width: 1024px) {
+    margin-top: 0;
+  }
+  #shows .upcoming & {
+    margin-top: 0;
+  }
+  #else .logos & {
+    margin-top: 0;
+    margin-bottom: 2em;
+  }
 }

@@ -1,13 +1,13 @@
 #mobile-menu-open,
 #mobile-menu-close {
-    display: block;
-    @media (min-width: $lg) {
-        display: none;
-    }
     position: absolute;
     top: 5px;
     right: 5px;
     z-index: 3;
+    display: block;
+    @media (min-width: 1024px) {
+        display: none;
+    }
     button {
         padding: 0;
         svg {
@@ -18,10 +18,6 @@
 }
 
 #mobile-menu {
-    display: block;
-    @media (min-width: $lg) {
-        display: none;
-    }
     background-color: #000;
     background-image: linear-gradient(45deg, #000000, #7a3f58);
     color: #fff2f7;
@@ -31,6 +27,10 @@
     height: 100vh;
     width: 100vw;
     z-index: 5;
+    display: block;
+    @media (min-width: 1024px) {
+        display: none;
+    }
     ul.mobile-menu-list {
         display: grid;
         height: 100vh;
@@ -38,11 +38,11 @@
         align-content: start;
         overflow-y: auto;
         overflow-x: hidden;
+        justify-content: center;
+        text-align: center;
         @media (min-height: 675px) {
             align-content: center;
         }
-        justify-content: center;
-        text-align: center;
         li a {
             font-size: 2em;
             display: block;

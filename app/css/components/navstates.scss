@@ -15,14 +15,18 @@
 
 .nav-item {
     a {
-        @apply nav-item-default-state;
+      transition: 100ms;
+      text-decoration: none;
+      display: inline-block;
+      font-style: italic;
     }
     a:hover,
     a:focus,
     a:active {
-        @apply nav-item-hover-state;
+      text-decoration: underline;
     }
     &.active a {
-        @apply nav-item-active-state;
+      font-weight: bold;
+      letter-spacing: 0.1em;
     }
 }

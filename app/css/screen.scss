@@ -1,18 +1,16 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@use 'tailwindcss';
 
-@import "layout";
-@import "helpers";
-@import "type";
+@use "layout.scss";
+@use "helpers.scss";
+@use "type.scss";
 
 // components
-@import "components/navdesktop";
-@import "components/navmobile";
-@import "components/navstates";
+@use "components/navdesktop.scss";
+@use "components/navmobile.scss";
+@use "components/navstates.scss";
 
 // pages
-@import "pages/home";
-@import "pages/shows";
-@import "pages/recordings";
-@import "pages/else";
+@use "pages/home.scss";
+@use "pages/shows.scss";
+@use "pages/recordings.scss";
+@use "pages/else.scss";

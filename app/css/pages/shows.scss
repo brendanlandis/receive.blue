@@ -8,7 +8,7 @@
         'image'
         'upcoming'
         'previous';
-    @media (min-width: $lg) {
+    @media (min-width: 1024px) {
         grid-column-gap: 1em;
         grid-row-gap: 2em;
         grid-template-areas:
@@ -22,7 +22,7 @@
     .previous {
         z-index: 2;
     }
-    @media (max-width: $xl) {
+    @media (max-width: 1280px) {
         .upcoming,
         .previous {
             padding: 0 1em;
@@ -35,7 +35,7 @@
             margin-bottom: 1em;
         }
         .show-list {
-            @media (min-width: $md) {
+            @media (min-width: 768px) {
                 display: grid;
                 grid-template-columns: 1fr;
             }
@@ -130,7 +130,7 @@
     .previous {
         grid-area: previous;
         .show-list {
-            @media (min-width: $md) {
+            @media (min-width: 768px) {
                 /* display: grid;
                 grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
             }

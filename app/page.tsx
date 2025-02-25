@@ -38,14 +38,14 @@ export default function Home() {
                 <LiaBandcamp />
               </Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link
                 href="https://www.patreon.com/user?u=18475116"
                 title="Brendan and Calley on Patreon"
               >
                 <LiaPatreon />
               </Link>
-            </li>
+            </li> */}
             <li className="nav-item">
               <Link
                 href="https://open.spotify.com/album/5WAR3l0KMw0cS5uh6F7DpX"
@@ -54,20 +54,20 @@ export default function Home() {
                 <LiaSpotify />
               </Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link
                 href="https://mstdn.social/@slownames"
                 title="Brendan on Mastodon"
               >
                 <LiaMastodon />
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
         <div className="about">
           <p className="top">
-            <span className="bandname">Receive</span> is a heavy art rock band
-            from Ridgewood NY.
+            <span className="bandname">Receive</span> is a loud weird band
+            from Ridgewood NY
           </p>
           <Posts />
         </div>

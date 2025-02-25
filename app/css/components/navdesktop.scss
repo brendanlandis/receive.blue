@@ -1,13 +1,13 @@
 nav#nav-desktop {
     display: none;
-    @media (min-width: $lg) {
-        display: inline-block;
-    }
     position: absolute;
     top: 1em;
     left: 1em;
     z-index: 3;
     max-width: 275px;
+    @media (min-width: 1024px) {
+        display: inline-block;
+    }
     ul#primary {
         overflow: hidden;
         display: flex;

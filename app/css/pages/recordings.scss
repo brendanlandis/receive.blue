@@ -7,7 +7,7 @@
         'logo'
         'image'
         'text';
-    @media (min-width: $lg) {
+    @media (min-width: 1024px) {
         grid-column-gap: 1em;
         grid-row-gap: 2em;
         grid-template-areas:
@@ -22,7 +22,7 @@
         p {
             margin: 0 auto 1em auto;
             font-size: 1.5em;
-            @media (min-width: $lg) {
+            @media (min-width: 1024px) {
                 max-width: 60%;
             }
         }
@@ -33,7 +33,7 @@
     a {
         text-decoration: underline;
     }
-    @media (max-width: $xl) {
+    @media (max-width: 1280px) {
         .text {
             padding: 0 1em;
         }
