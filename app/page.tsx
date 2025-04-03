@@ -42,6 +42,7 @@ export default function Home() {
           Ridgewood NY
         </p>
         <Posts />
+        
       </div>
     </main>
   );

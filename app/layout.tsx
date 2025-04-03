@@ -1,11 +1,17 @@
 import type { Metadata } from 'next';
 import './css/screen.css';
 import Script from 'next/script';
+import { Source_Code_Pro } from 'next/font/google';
 
 export const metadata: Metadata = {
   title: 'Receive',
   description: 'art rock band in Ridgewood NY',
 };
+
+const sourceCodePro = Source_Code_Pro({
+  variable: '--font-source-code-pro',
+  subsets: ['latin'],
+});
 
 export default function RootLayout({
   children,
@@ -37,10 +43,8 @@ export default function RootLayout({
         href="/favicon-16x16.png"
       />
       <link rel="manifest" href="/site.webmanifest" />
-      <body className="antialiased">
-        <div id="background-wrapper">
-          {children}
-        </div>
+      <body className={`${sourceCodePro.variable} antialiased`}>
+        <div id="background-wrapper">{children}</div>
       </body>
     </html>
   );
