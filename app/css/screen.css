@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@import "./layout";
+@import "./helpers";
+@import "./type";
+
+/* components */
+@import "./components/navdesktop";
+@import "./components/navmobile";
+@import "./components/navstates";
+
+/* pages */
+@import "./pages/home.css";
+/* @import "./pages/shows.css";
+@import "./pages/recordings.css";
+@import "./pages/else.css"; */

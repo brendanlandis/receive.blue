@@ -1,0 +1,54 @@
+header {
+  font-family: "Source Code Pro", sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  nav {
+    font-weight: 100 !important;
+  }
+}
+
+#mobile-menu,
+#nav-desktop {
+  font-family: "Source Code Pro", sans-serif;
+}
+
+main {
+  font-family: "Source Code Pro", sans-serif;
+  font-size: 1em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Source Code Pro", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-style: italic;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 3em;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 1), 1px -1px 0 rgba(0, 0, 0, 1),
+    -1px 1px 0 rgba(0, 0, 0, 1), 1px 1px 0 rgba(0, 0, 0, 1);
+  line-height: 1em;
+  margin-bottom: 0.5em;
+  margin-top: 2em;
+  @media (min-width: 1024px) {
+    margin-top: 0;
+  }
+  #shows .upcoming & {
+    margin-top: 0;
+  }
+  #else .logos & {
+    margin-top: 0;
+    margin-bottom: 2em;
+  }
+}
