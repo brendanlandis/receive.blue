@@ -11,6 +11,7 @@
 
 /* pages */
 @import "./pages/home.css";
-/* @import "./pages/shows.css";
+@import "./pages/shows.css";
 @import "./pages/recordings.css";
-@import "./pages/else.css"; */
+@import "./pages/else.css";
+@import "./pages/epk.css";
