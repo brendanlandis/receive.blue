@@ -2,14 +2,13 @@
 import useAxios from "axios-hooks";
 import {
   BlocksRenderer,
-  type BlocksContent,
 } from "@strapi/blocks-react-renderer";
 import { Post, RawPostData } from "@/app/types";
 import { format } from "date-fns/format";
 import { parseISO } from "date-fns/parseISO";
 
 export default function Posts() {
-  const [{ data: posts, loading, error }, refetch] = useAxios(
+  const [{ data: posts, loading, error }] = useAxios(
     "https://slownames.net/api/posts?populate=*&filters[band][name]=Receive&pagination[page]=1&pagination[pageSize]=5&sort=id:desc"
   );
 

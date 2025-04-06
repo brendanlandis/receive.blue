@@ -116,14 +116,14 @@ export interface RawPostData {
   };
 }
 
-interface ImageFormat {
-  ext: string;
-  url: string;
-  mime: string;
-  width: number;
-  height: number;
-  size: number;
-}
+// interface ImageFormat {
+//   ext: string;
+//   url: string;
+//   mime: string;
+//   width: number;
+//   height: number;
+//   size: number;
+// }
 
 export interface Post {
   id: number;

@@ -3,6 +3,8 @@ import Header from '../components/Header';
 import Link from 'next/link';
 import Image from 'next/image';
 
+/* eslint-disable react/no-unescaped-entities */
+
 export const metadata: Metadata = {
     title: "Receive :: other stuff we're up to",
 };

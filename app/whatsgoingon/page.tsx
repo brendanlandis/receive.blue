@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import Schedule from './Schedule';
 
+/* eslint-disable react/no-unescaped-entities */
+
 export const metadata: Metadata = {
     title: 'Receive :: uhhh',
 };

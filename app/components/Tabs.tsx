@@ -5,7 +5,7 @@ import { Tab, RawTabData } from '@/app/types';
 // TODO if the post is about two of our bands, the one that isn't Receive should be added to the otherBands field
 
 export default function Tabs() {
-    const [{ data: tabs, loading, error }, refetch] = useAxios(
+    const [{ data: tabs, loading, error }] = useAxios(
         'https://api.slownames.net/api/tabs?populate=*&filters[bands][id]=32&pagination[page]=1&pagination[pageSize]=5&sort=id:desc'
     );
 
