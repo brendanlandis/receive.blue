@@ -1,9 +1,105 @@
 #epk {
-  ul {
-    list-style-type: disc;
-    margin-left: 1em;
-  }
   a {
     text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+      background: #000;
+    }
+  }
+  h1 {
+    display: none;
+  }
+  h2, h3 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  #epk-grid {
+    padding: 3rem 1rem;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+  }
+  .epk-info,
+  .epk-media {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .epk-socials ul,
+  .epk-listen-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    svg,
+    img {
+      width: 3rem;
+      height: 3rem;
+      fill: #fff;
+    }
+    .small-icon {
+      svg,
+      img {
+        width: 2.3rem;
+        height: 2.3rem;
+        margin: 0.35rem;
+      }
+    }
+    a {
+      svg {
+        fill: #fff;
+      }
+      &:hover {
+        svg {
+          fill: #000;
+        }
+        img {
+          filter: invert(1);
+        }
+      }
+    }
+  }
+  .epk-bio {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .epk-press {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+  .epk-pdf {
+    font-size: 1.5rem;
+  }
+  .epk-contact-footer {
+    font-size: 1.5rem;
+  }
+
+  .epk-listen {
+    iframe {
+      width: 100%;
+      aspect-ratio: 0.8;
+      border: none;
+    }
+  }
+  .epk-pics {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    ul {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
   }
 }
