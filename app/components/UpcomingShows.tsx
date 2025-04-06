@@ -1,7 +1,7 @@
 "use client";
 import useAxios from "axios-hooks";
 import { Show, RawShowData } from "@/app/types";
-import { Masonry } from "react-plock";
+// import { Masonry } from "react-plock";
 import { GetShowDetails } from "./GetShowDetails";
 
 // TODO if two of our bands are playing, the one that isn't Receive should be added to the otherBands field
@@ -140,7 +140,7 @@ export default function UpcomingShows() {
                   on {lastShow.shortDate}:
                 </div>
                 <div className="lastshow-pics">
-                  <Masonry
+                  {/* <Masonry
                     items={MasonryImages}
                     config={{
                       columns: [1, 1, 2],
@@ -161,7 +161,7 @@ export default function UpcomingShows() {
                         </a>
                       </>
                     )}
-                  />
+                  /> */}
                 </div>
               </>
             ) : (
