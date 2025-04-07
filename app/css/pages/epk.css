@@ -1,4 +1,13 @@
 #epk {
+  h1 {
+    display: none;
+  }
+  h2,
+  h3 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
   a {
     text-decoration: underline;
     &:hover {
@@ -6,26 +15,92 @@
       background: #000;
     }
   }
-  h1 {
-    display: none;
+  iframe {
+    width: 100%;
+    max-width: 700px;
+    max-height: 890px;
+    aspect-ratio: 0.65;
+    border: none;
+    margin: 0 auto;
+    @media (min-width: 335px) {
+      aspect-ratio: 0.7;
+    }
+    @media (min-width: 425px) {
+      aspect-ratio: 0.75;
+    }
+    @media (min-width: 550px) {
+      aspect-ratio: 0.8;
+    }
+    @media (min-width: 650px) {
+      aspect-ratio: 0.83;
+    }
+    @media (min-width: 960px) {
+      aspect-ratio: 0.75;
+    }
+    @media (min-width: 1100px) {
+      aspect-ratio: 0.8;
+    }
   }
-  h2, h3 {
-    margin: 0;
-    padding: 0;
-    text-align: center;
+  hr {
+    opacity: 0.3;
   }
+
   #epk-grid {
-    padding: 3rem 1rem;
+    padding: 1rem;
     text-align: center;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
+    gap: 3rem;
+    grid-template-columns: 1fr;
+    @media (min-width: 768px) and (max-width: 959px) {
+      padding: 3rem 1rem;
+      max-width: 700px;
+      margin: 0 auto;
+      #receive-logo {
+        max-width: 75%;
+        margin: 0 auto 1em auto;
+      }
+    }
+    @media (min-width: 960px) {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    @media (min-width: 1280px) {
+      gap: 5em;
+    }
   }
   .epk-info,
   .epk-media {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+  }
+
+  .epk-logo {
+    a {
+      white-space: nowrap;
+    }
+    a:first-of-type {
+      display: block;
+    }
+    .divider {
+      display: none;
+    }
+    @media (min-width: 450px) {
+      a:first-of-type {
+        display: inline;
+      }
+      .divider {
+        display: inline;
+      }
+    }
+  }
+
+  .epk-mobile-pic,
+  .epk-listen-mobile,
+  #divider-two {
+    @media (min-width: 960px) {
+      display: none;
+    }
   }
 
   .epk-socials ul,
@@ -61,6 +136,12 @@
       }
     }
   }
+
+  .epk-socials-contact {
+    margin-top: 1rem;
+    display: block;
+  }
+
   .epk-bio {
     text-align: left;
     display: flex;
@@ -82,14 +163,15 @@
     font-size: 1.5rem;
   }
   .epk-contact-footer {
-    font-size: 1.5rem;
+    @media (min-width: 425px) {
+      font-size: 1.5rem;
+    }
   }
 
-  .epk-listen {
-    iframe {
-      width: 100%;
-      aspect-ratio: 0.8;
-      border: none;
+  .epk-listen-desktop {
+    display: none;
+    @media (min-width: 960px) {
+      display: block;
     }
   }
   .epk-pics {

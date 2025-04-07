@@ -23,17 +23,32 @@ export default function Home() {
                 height="1024"
                 width="1024"
                 alt="Receive logo in white"
+                id=""
               />
               <Link href="https://slownames-strapi-media.s3.us-east-1.amazonaws.com/receive_logo_mixed_up_01_black_on_transparent_a11daa34dd.png">
                 hi-res logo in black
-              </Link>{' '}
-              |{' '}
+              </Link>
+              <span className="divider"> | </span>
               <Link href="https://slownames-strapi-media.s3.us-east-1.amazonaws.com/receive_logo_mixed_up_01_white_on_transparent_7f8a82e722.png">
                 hi-res logo in white
               </Link>
             </span>
           </div>
-          <hr />
+
+          <div className="epk-mobile-pic">
+            <Link href="https://slownames-strapi-media.s3.us-east-1.amazonaws.com/living_room_desaturate_abbd800e3e.jpg">
+              <Image
+                src="https://slownames-strapi-media.s3.us-east-1.amazonaws.com/living_room_desaturate_abbd800e3e.jpg"
+                height="960"
+                width="960"
+                alt="Receive press photo"
+              />
+              download hi-res version of this photo
+            </Link>
+          </div>
+
+          <hr id="divider-one" />
+
           <div className="epk-socials">
             <ul>
               <li>
@@ -65,7 +80,52 @@ export default function Home() {
               email: <Obfuscate email="receive@weirdslowrecords.com" />
             </div>
           </div>
-          <hr />
+
+          <hr id="divider-two" />
+
+          <div className="epk-listen-mobile">
+            <iframe
+              src="https://bandcamp.com/EmbeddedPlayer/album=4196908626/size=large/bgcol=333333/linkcol=9a64ff/tracklist=false/transparent=true/"
+              seamless
+            ></iframe>
+            <ul className="epk-listen-links">
+              <li>
+                <Link
+                  href="https://slownames.bandcamp.com/"
+                  title="Receive on Bandcamp"
+                >
+                  <LiaBandcamp />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://ampwall.com/a/receive"
+                  title="Receive on Ampwall"
+                >
+                  <Image src={ampwallLogo} alt="Ampwall logo" />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://open.spotify.com/album/5WAR3l0KMw0cS5uh6F7DpX"
+                  title="Receive on Spotify"
+                >
+                  <LiaSpotify />
+                </Link>
+              </li>
+              <li className="small-icon">
+                <Link
+                  href="https://music.apple.com/us/album/new-abrasions/1800901906"
+                  title="Receive on Apple Music"
+                >
+                  <SiApplemusic />
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <hr id="divider-three" />
+
           <div className="epk-bio">
             <h2>Bio</h2>
             <p>
@@ -96,7 +156,9 @@ export default function Home() {
               turns heads, sparks curiosity, and is tough to ignore.
             </p>
           </div>
-          <hr />
+
+          <hr id="divider-four" />
+
           <div className="epk-press">
             <h2>Press</h2>
             <ul>
@@ -126,16 +188,19 @@ export default function Home() {
               </li>
             </ul>
           </div>
-          <hr />
+
+          <hr id="divider-five" />
+
           <div className="epk-pdf">
-            <Link href="#">Download this EPK as a PDF</Link>
+            <Link href="/receive-epk.pdf">Download this EPK as a PDF</Link>
           </div>
+
           <div className="epk-contact-footer">
             email: <Obfuscate email="receive@weirdslowrecords.com" />
           </div>
         </div>
         <div className="epk-media">
-          <div className="epk-listen">
+          <div className="epk-listen-desktop">
             <iframe
               src="https://bandcamp.com/EmbeddedPlayer/album=4196908626/size=large/bgcol=333333/linkcol=9a64ff/tracklist=false/transparent=true/"
               seamless
@@ -180,57 +245,57 @@ export default function Home() {
             <h2>Photos</h2>
             <ul>
               <li>
-                <Image
-                  src="https://slownames-strapi-media.s3.us-east-1.amazonaws.com/living_room_desaturate_abbd800e3e.jpg"
-                  height="700"
-                  width="700"
-                  alt="Receive press photo"
-                />
                 <Link href="https://slownames-strapi-media.s3.us-east-1.amazonaws.com/living_room_desaturate_abbd800e3e.jpg">
+                  <Image
+                    src="https://slownames-strapi-media.s3.us-east-1.amazonaws.com/living_room_desaturate_abbd800e3e.jpg"
+                    height="960"
+                    width="960"
+                    alt="Receive press photo"
+                  />
                   download hi-res version of this photo
                 </Link>
               </li>
               <li>
-                <Image
-                  src="https://slownames-strapi-media.s3.us-east-1.amazonaws.com/250329_Receive_Hart_Bar_Shitgazer_244_0285b74547.jpg"
-                  height="700"
-                  width="700"
-                  alt="Receive live photo"
-                />
                 <Link href="https://slownames-strapi-media.s3.us-east-1.amazonaws.com/250329_Receive_Hart_Bar_Shitgazer_244_0285b74547.jpg">
+                  <Image
+                    src="https://slownames-strapi-media.s3.us-east-1.amazonaws.com/250329_Receive_Hart_Bar_Shitgazer_244_0285b74547.jpg"
+                    height="960"
+                    width="960"
+                    alt="Receive live photo"
+                  />
                   download hi-res version of this photo
                 </Link>
               </li>
               <li>
-                <Image
-                  src="https://slownames-strapi-media.s3.us-east-1.amazonaws.com/240209_rooftop_Katixa_01_62bf60f1e7.jpg"
-                  height="700"
-                  width="700"
-                  alt="Receive press photo"
-                />
                 <Link href="https://slownames-strapi-media.s3.us-east-1.amazonaws.com/240209_rooftop_Katixa_01_62bf60f1e7.jpg">
+                  <Image
+                    src="https://slownames-strapi-media.s3.us-east-1.amazonaws.com/240209_rooftop_Katixa_01_62bf60f1e7.jpg"
+                    height="960"
+                    width="960"
+                    alt="Receive press photo"
+                  />
                   download hi-res version of this photo
                 </Link>
               </li>
               <li>
-                <Image
-                  src="https://slownames-strapi-media.s3.us-east-1.amazonaws.com/250329_Receive_Hart_Bar_Shitgazer_018_08bd05e8f7.jpg"
-                  height="700"
-                  width="700"
-                  alt="Receive live photo"
-                />
                 <Link href="https://slownames-strapi-media.s3.us-east-1.amazonaws.com/250329_Receive_Hart_Bar_Shitgazer_018_08bd05e8f7.jpg">
+                  <Image
+                    src="https://slownames-strapi-media.s3.us-east-1.amazonaws.com/250329_Receive_Hart_Bar_Shitgazer_018_08bd05e8f7.jpg"
+                    height="960"
+                    width="960"
+                    alt="Receive live photo"
+                  />
                   download hi-res version of this photo
                 </Link>
               </li>
               <li>
-                <Image
-                  src="https://slownames-strapi-media.s3.us-east-1.amazonaws.com/240209_rooftop_Katixa_12_9485c05a1c.jpg"
-                  height="700"
-                  width="700"
-                  alt="Receive press photo"
-                />
                 <Link href="https://slownames-strapi-media.s3.us-east-1.amazonaws.com/240209_rooftop_Katixa_12_9485c05a1c.jpg">
+                  <Image
+                    src="https://slownames-strapi-media.s3.us-east-1.amazonaws.com/240209_rooftop_Katixa_12_9485c05a1c.jpg"
+                    height="960"
+                    width="960"
+                    alt="Receive press photo"
+                  />
                   download hi-res version of this photo
                 </Link>
               </li>
