@@ -9,7 +9,7 @@ import { parseISO } from "date-fns/parseISO";
 
 export default function Posts() {
   const [{ data: posts, loading, error }] = useAxios(
-    "https://slownames.net/api/posts?populate=*&filters[band][name]=Receive&pagination[page]=1&pagination[pageSize]=5&sort=id:desc"
+    "https://api.slownames.net/api/posts?populate=*&filters[band][name]=Receive&pagination[page]=1&pagination[pageSize]=5&sort=id:desc"
   );
 
   if (loading) return <p>loading</p>;
