@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './css/screen.css';
 import Script from 'next/script';
 import { Source_Code_Pro } from 'next/font/google';
+import MatomoTracker from './components/MatomoTracker';
 
 export const metadata: Metadata = {
   title: 'Receive',
@@ -44,6 +45,7 @@ export default function RootLayout({
       />
       <link rel="manifest" href="/site.webmanifest" />
       <body className={`${sourceCodePro.variable} antialiased`}>
+        <MatomoTracker />
         <div id="background-wrapper">{children}</div>
       </body>
     </html>
