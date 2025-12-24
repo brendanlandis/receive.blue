@@ -1,1 +1,59 @@
 @import "tailwindcss";
+@plugin "daisyui";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --dui-themes: lofi;
+}
+
+html {
+  height: 100vh;
+  width: 100vw;
+  background-color: #99ffc5;
+  background-image: radial-gradient(
+      at 87% 48%,
+      hsla(185, 99%, 42%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 14% 38%, hsla(292, 64%, 42%, 1) 0px, transparent 50%),
+    radial-gradient(at 86% 53%, hsla(152, 60%, 42%, 1) 0px, transparent 50%),
+    radial-gradient(at 55% 0%, hsla(178, 83%, 42%, 1) 0px, transparent 50%),
+    radial-gradient(at 16% 91%, hsla(325, 75%, 42%, 1) 0px, transparent 50%),
+    radial-gradient(at 65% 14%, hsla(157, 63%, 42%, 1) 0px, transparent 50%),
+    radial-gradient(at 31% 90%, hsla(200, 85%, 42%, 1) 0px, transparent 50%);
+  background-attachment: fixed;
+}
+
+body {
+  text-align: center;
+  overflow-x: hidden;
+}
+
+main {
+  h1 {
+    display: none;
+  }
+  max-width: 1600px;
+  text-align: left;
+  margin: 0 auto;
+  padding: 1rem;
+  position: relative;
+}
+
+#logo {
+  position: relative;
+  left: 20%;
+  z-index: 2;
+  /* display: none; */
+}
+
+#live-shot {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.2;
+  height: 1300px;
+  object-fit: cover;
+  object-position: center;
+}
