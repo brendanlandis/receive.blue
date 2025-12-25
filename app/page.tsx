@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <>
       <Image
-        src="https://slownames-strapi-media.s3.us-east-1.amazonaws.com/Star_Card_21_2bd5001327.jpg"
+        src="https://slownames-strapi-media.s3.us-east-1.amazonaws.com/250329_Receive_Hart_Bar_Shitgazer_018_08bd05e8f7.jpg"
         alt="photo of band"
         id="live-shot"
         width={3000}

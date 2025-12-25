@@ -9,19 +9,19 @@
 html {
   height: 100vh;
   width: 100vw;
-  background-color: #99ffc5;
+  background-attachment: fixed;
+  background-color: hsla(340, 37%, 12%, 1);
   background-image: radial-gradient(
-      at 87% 48%,
-      hsla(185, 99%, 42%, 1) 0px,
+      at 79% 43%,
+      hsla(4, 39%, 11%, 1) 0px,
       transparent 50%
     ),
-    radial-gradient(at 14% 38%, hsla(292, 64%, 42%, 1) 0px, transparent 50%),
-    radial-gradient(at 86% 53%, hsla(152, 60%, 42%, 1) 0px, transparent 50%),
-    radial-gradient(at 55% 0%, hsla(178, 83%, 42%, 1) 0px, transparent 50%),
-    radial-gradient(at 16% 91%, hsla(325, 75%, 42%, 1) 0px, transparent 50%),
-    radial-gradient(at 65% 14%, hsla(157, 63%, 42%, 1) 0px, transparent 50%),
-    radial-gradient(at 31% 90%, hsla(200, 85%, 42%, 1) 0px, transparent 50%);
-  background-attachment: fixed;
+    radial-gradient(at 78% 67%, hsla(336, 39%, 11%, 1) 0px, transparent 50%),
+    radial-gradient(at 11% 70%, hsla(352, 39%, 11%, 1) 0px, transparent 50%),
+    radial-gradient(at 11% 95%, hsla(42, 39%, 11%, 1) 0px, transparent 50%),
+    radial-gradient(at 20% 26%, hsla(34, 39%, 11%, 1) 0px, transparent 50%),
+    radial-gradient(at 54% 42%, hsla(162, 39%, 11%, 1) 0px, transparent 50%),
+    radial-gradient(at 32% 51%, hsla(281, 39%, 11%, 1) 0px, transparent 50%);
 }
 
 body {
@@ -42,9 +42,27 @@ main {
 
 #logo {
   position: relative;
-  left: 20%;
-  z-index: 2;
-  /* display: none; */
+  z-index: 3;
+  filter: invert(1) opacity(86%);
+  margin: 0;
+  left: 37%;
+  margin-top: 10%;
+  transform: scale(1.6);
+
+  @media screen and (min-width: 768px) {
+    left: 37%;
+    margin-top: 10%;
+    transform: scale(1.6);
+  }
+  @media screen and (min-width: 960px) {
+    left: 20%;
+    margin-top: -5%;
+    transform: none;
+  }
+  @media screen and (min-width: 1600px) {
+    left: 20%;
+    margin-top: 0;
+  }
 }
 
 #live-shot {
@@ -52,8 +70,9 @@ main {
   position: absolute;
   top: 0;
   left: 0;
-  opacity: 0.2;
+  opacity: 0.5;
   height: 1300px;
   object-fit: cover;
   object-position: center;
+  filter: grayscale(81%) contrast(101%);
 }
